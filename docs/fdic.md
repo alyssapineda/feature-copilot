@@ -1,4 +1,4 @@
-**Table 1: FDIC (Financial Institution Data)
+**Table 1: BANKING_ANALYTICS_BUNDLE.BANKING_INSIGHTS.FDIC** (Financial Institution Data)
 
 This table contains information related to financial institutions and their attributes.
 

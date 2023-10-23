@@ -1,4 +1,4 @@
-**Table 4: FRED_UNEMPLOYMENT_RATE (Unemployment Rate and Economic Data)
+**Table 4: BANKING_ANALYTICS_BUNDLE.BANKING_INSIGHTS.FRED_UNEMPLOYMENT_RATE** (Unemployment Rate and Economic Data)
 
 This table contains data related to unemployment rates and various economic indicators.
 

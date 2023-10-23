@@ -1,4 +1,4 @@
-**Table 5: NCUA_CREDIT_UNION_BRANCHES (Credit Union Branch Information)
+**Table 5: BANKING_ANALYTICS_BUNDLE.BANKING_INSIGHTS.NCUA_CREDIT_UNION_BRANCHES** (Credit Union Branch Information)
 
 This table contains information about credit union branches and their attributes.
 

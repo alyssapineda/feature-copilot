@@ -1,4 +1,4 @@
-**Table 2: FRED_FINANCIAL_LABOR_PERFORMANCE (Economic and Financial Labor Performance Data)
+**Table 2: BANKING_ANALYTICS_BUNDLE.BANKING_INSIGHTS.FRED_FINANCIAL_LABOR_PERFORMANCE** (Economic and Financial Labor Performance Data)
 
 This table contains data related to economic and financial labor performance, including employment, industrial production, and labor force participation.
 
