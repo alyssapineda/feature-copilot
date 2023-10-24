@@ -1,5 +1,3 @@
-from typing import Any, Dict
-
 import streamlit as st
 import snowflake.connector
 import toml
