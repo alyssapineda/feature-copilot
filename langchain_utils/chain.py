@@ -1,41 +1,15 @@
-from typing import Any, Callable, Dict, Optional
-from os_secrets import get_secrets_path
-from supabase_utils import supabase_connect
-import toml
-import boto3
-import streamlit as st
-import os
-import vecs
-import openai
 from langchain.chains import ConversationalRetrievalChain, LLMChain
 from langchain.chains.question_answering import load_qa_chain
 from langchain.chat_models import ChatOpenAI
 from langchain.embeddings.openai import OpenAIEmbeddings
-from langchain.llms import OpenAI, Replicate
-from langchain.llms.bedrock import Bedrock
 from langchain.vectorstores import SupabaseVectorStore
 from pydantic import BaseModel, validator
 from supabase import create_client, Client
 from template import CONDENSE_QUESTION_PROMPT, QA_PROMPT
+from typing import Any, Callable, Dict, Optional
+from utils.credentials import Credentials
 
-# supabase_url = st.secrets["SUPABASE_URL"]
-# supabase_key = st.secrets["SUPABASE_SERVICE_KEY"]
-# supabase: Client = create_client(supabase_url, supabase_key)
-
-def get_credentials():
-    secrets_path = get_secrets_path()
-    try:
-        secrets = toml.load(secrets_path)
-        return secrets
-    except Exception as e: 
-        print("Error: ",e)
-        return None
-
-def create_supabase_client(url, key):
-  print("...Testing connectivity...")
-  supabase: Client = create_client(url, key)
-  print("...Connection Established...")
-  return supabase
+import streamlit as st
 
 class ModelConfig(BaseModel):
     model_type: str
@@ -51,7 +25,7 @@ class ModelConfig(BaseModel):
 class ModelWrapper:
     def __init__(self, config: ModelConfig):
         self.model_type = config.model_type
-        self.secrets = get_credentials()
+        self.secrets = Credentials.get_credentials()
         self.callback_handler = config.callback_handler
         self.setup()
 
@@ -88,7 +62,7 @@ class ModelWrapper:
         return conv_chain
 
 def load_chain(model_name="GPT-3.5", callback_handler=None):
-    supabase_credentials = get_credentials().get("supabase")
+    supabase_credentials = Credentials.get_credentials(section="supabase")
     supabase_url = supabase_credentials["SUPABASE_URL"]
     supabase_key = supabase_credentials["SUPABASE_API_KEY"]
     supabase_client: Client = create_client(supabase_url, supabase_key)

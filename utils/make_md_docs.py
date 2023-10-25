@@ -1,8 +1,9 @@
+from utils.credentials import Credentials
 import csv
 import pandas as pd
 
 #Change path
-path = '/Users/alyssapineda/feature-copilot/feature-copilot/csv/fred_financial_labor_performance.csv'
+PATH = Credentials.get_csv_path(filename="fred_financial_labor_performance.csv")
 
 def read_csv(csv_file):
   columns = []
@@ -45,5 +46,5 @@ table_name = "banking_analytics_bundle.banking_insights.Financial Labout Perform
 table_header = "Economic and Financial Labor Performance Data"
 table_description = "related to economic and financial labor performance, including employment, industrial production, and labor force participation"
 output_md_path = '/Users/alyssapineda/feature-copilot/feature-copilot/docs/fred_financial_labor_performance.md'
-columns = read_csv(path)
+columns = read_csv(PATH)
 generate_md_doc(table_number, table_name, table_header, table_description, output_md_path, columns)
