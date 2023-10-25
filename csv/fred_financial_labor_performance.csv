@@ -1,0 +1,9 @@
+TABLE_NAME,DATA_TYPE,COLUMN_NAME,IS_NULLABLE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COMMENT
+FRED_FINANCIAL_LABOR_PERFORMANCE,DATE,OBSERVATION_DATE,YES,,,,Date for which the economic and financial data is recorded or reported
+FRED_FINANCIAL_LABOR_PERFORMANCE,NUMBER,INDUSTRIAL_PRODUCTION_SEASONALLY_ADJUSTED,YES,,38,2,"Data on industrial production, which gauges the output and performance of the industrial sector seasonally adjusted"
+FRED_FINANCIAL_LABOR_PERFORMANCE,NUMBER,INDUSTRIAL_PRODUCTION_NOT_SEASONALLY_ADJUSTED,YES,,38,2,"Data on industrial production, which gauges the output and performance of the industrial sector not seasonally adjusted"
+FRED_FINANCIAL_LABOR_PERFORMANCE,NUMBER,ALL_EMPLOYEES_TOTAL_NONFARM_SEASONALLY_ADJUSTED,YES,,38,2,"Data on total nonfarm employment, capturing the number of individuals employed across various industries seasonally adjusted"
+FRED_FINANCIAL_LABOR_PERFORMANCE,NUMBER,PERSONAL_SAVING_RATE,YES,,38,2,"Personal saving rate, indicating the proportion of disposable income that individuals save rather than spend"
+FRED_FINANCIAL_LABOR_PERFORMANCE,NUMBER,ALL_EMPLOYEES_TOTAL_NONFARM_NOT_SEASONALLY_ADJUSTED,YES,,38,2,"Data on total nonfarm employment, capturing the number of individuals employed across various industries not seasonally adjusted"
+FRED_FINANCIAL_LABOR_PERFORMANCE,NUMBER,LABOR_FORCE_PARTICIPATION_RATE_NOT_SEASONALLY_ADJUSTED,YES,,38,2,Metric reflecting the percentage of the working-age population that is actively engaged in the labor market not seasonally adjusted
+FRED_FINANCIAL_LABOR_PERFORMANCE,NUMBER,LABOR_FORCE_PARTICIPATION_RATE_SEASONALLY_ADJUSTED,YES,,38,2,Metric reflecting the percentage of the working-age population that is actively engaged in the labor market seasonally adjusted

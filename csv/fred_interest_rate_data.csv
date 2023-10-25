@@ -1,0 +1,36 @@
+TABLE_NAME,DATA_TYPE,COLUMN_NAME,IS_NULLABLE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COMMENT
+FRED_INTEREST_RATE_DATA,NUMBER,DTLTR_EXTRAPOLATION_FACTOR,YES,,38,2,Long-Term Treasury Extrapolation Factor
+FRED_INTEREST_RATE_DATA,NUMBER,DTYCR_4_MO,YES,,38,2,Daily Treasury Par Yield Curve Rates for 4-month
+FRED_INTEREST_RATE_DATA,NUMBER,DTBR_4_WEEKS_BANK_DISCOUNT,YES,,38,2,Treasury Bill Rates for 4-weeks bank discount
+FRED_INTEREST_RATE_DATA,NUMBER,DTLTR_LT_COMPOSITE_GREATER_THAN_10_YRS,YES,,38,2,"Long-Term Treasury Rates, such as the Long-Term Composite Rate (>10 years)"
+FRED_INTEREST_RATE_DATA,NUMBER,DTBR_8_WEEKS_COUPON_EQUIVALENT,YES,,38,2,Treasury Bill Rates for 8-weeks coupon equivalent
+FRED_INTEREST_RATE_DATA,NUMBER,DTYCR_3_MO,YES,,38,2,Daily Treasury Par Yield Curve Rates for 3-month
+FRED_INTEREST_RATE_DATA,NUMBER,DTYCR_7_YR,YES,,38,2,Daily Treasury Par Yield Curve Rates for 7-year
+FRED_INTEREST_RATE_DATA,NUMBER,DTRYCR_10_YR,YES,,38,2,Daily Treasury Par Real Yield Curve Rates for 10-year
+FRED_INTEREST_RATE_DATA,NUMBER,DTRYCR_20_YR,YES,,38,2,Daily Treasury Par Real Yield Curve Rates for 20-year
+FRED_INTEREST_RATE_DATA,NUMBER,DTBR_52_WEEKS_COUPON_EQUIVALENT,YES,,38,2,Treasury Bill Rates for 52-weeks coupon equivalent
+FRED_INTEREST_RATE_DATA,NUMBER,DTYCR_6_MO,YES,,38,2,Daily Treasury Par Yield Curve Rates for 6-month
+FRED_INTEREST_RATE_DATA,NUMBER,DTYCR_5_YR,YES,,38,2,Daily Treasury Par Yield Curve Rates for 5-year
+FRED_INTEREST_RATE_DATA,NUMBER,DTBR_13_WEEKS_BANK_DISCOUNT,YES,,38,2,Treasury Bill Rates for 13-weeks bank discount
+FRED_INTEREST_RATE_DATA,NUMBER,DTBR_13_WEEKS_COUPON_EQUIVALENT,YES,,38,2,Treasury Bill Rates for 13-weeks coupon equivalent
+FRED_INTEREST_RATE_DATA,NUMBER,DTYCR_20_YR,YES,,38,2,Daily Treasury Par Yield Curve Rates for 20-year
+FRED_INTEREST_RATE_DATA,NUMBER,DTYCR_1_YR,YES,,38,2,Daily Treasury Par Yield Curve Rates for 1-year
+FRED_INTEREST_RATE_DATA,NUMBER,DTRYCR_5_YR,YES,,38,2,Daily Treasury Par Real Yield Curve Rates for 5-year
+FRED_INTEREST_RATE_DATA,NUMBER,DTBR_26_WEEKS_COUPON_EQUIVALENT,YES,,38,2,Treasury Bill Rates for 26-weeks coupon equivalent
+FRED_INTEREST_RATE_DATA,NUMBER,DTYCR_1_MO,YES,,38,2,Daily Treasury Par Yield Curve Rates for 1-month
+FRED_INTEREST_RATE_DATA,NUMBER,DTBR_4_WEEKS_COUPON_EQUIVALENT,YES,,38,2,Treasury Bill Rates for 4-weeks coupon equivalent
+FRED_INTEREST_RATE_DATA,NUMBER,DTRYCR_30_YR,YES,,38,2,Daily Treasury Par Real Yield Curve Rates for 30-year
+FRED_INTEREST_RATE_DATA,NUMBER,DTBR_17_WEEKS_COUPON_EQUIVALENT,YES,,38,2,Treasury Bill Rates for 17-weeks coupon equivalent
+FRED_INTEREST_RATE_DATA,NUMBER,DTYCR_2_YR,YES,,38,2,Daily Treasury Par Yield Curve Rates for 2-year
+FRED_INTEREST_RATE_DATA,DATE,DATE,YES,,,,Date for which the economic and financial data is recorded or reported
+FRED_INTEREST_RATE_DATA,NUMBER,DTBR_52_WEEKS_BANK_DISCOUNT,YES,,38,2,Treasury Bill Rates for 52-weeks bank discount
+FRED_INTEREST_RATE_DATA,NUMBER,DTYCR_2_MO,YES,,38,2,Daily Treasury Par Yield Curve Rates for 2-month
+FRED_INTEREST_RATE_DATA,NUMBER,DTRYCR_7_YR,YES,,38,2,Daily Treasury Par Real Yield Curve Rates for 7-year
+FRED_INTEREST_RATE_DATA,NUMBER,DTBR_17_WEEKS_BANK_DISCOUNT,YES,,38,2,Treasury Bill Rates for 17-weeks bank discount
+FRED_INTEREST_RATE_DATA,NUMBER,DTYCR_3_YR,YES,,38,2,Daily Treasury Par Yield Curve Rates for 3-year
+FRED_INTEREST_RATE_DATA,NUMBER,DTYCR_10_YR,YES,,38,2,Daily Treasury Par Yield Curve Rates for 10-year
+FRED_INTEREST_RATE_DATA,NUMBER,DTBR_26_WEEKS_BANK_DISCOUNT,YES,,38,2,Treasury Bill Rates for 26-weeks bank discount
+FRED_INTEREST_RATE_DATA,NUMBER,DTRLTR_LT_REAL_AVERAGE_10_GREATER_THAN_YRS,YES,,38,2,"Long-Term Real Rates, such as the Long-Term Real Composite Rate (>10 years)"
+FRED_INTEREST_RATE_DATA,NUMBER,DTLTR_TREASURY_20_YR_CMT,YES,,38,2,Long-Term Treasury 20-Year Constant Maturity Rate
+FRED_INTEREST_RATE_DATA,NUMBER,DTBR_8_WEEKS_BANK_DISCOUNT,YES,,38,2,Treasury Bill Rates for 8-weeks bank discount
+FRED_INTEREST_RATE_DATA,NUMBER,DTYCR_30_YR,YES,,38,2,Daily Treasury Par Yield Curve Rates for 30-year

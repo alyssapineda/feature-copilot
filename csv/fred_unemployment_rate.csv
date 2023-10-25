@@ -1,0 +1,11 @@
+TABLE_NAME,DATA_TYPE,COLUMN_NAME,IS_NULLABLE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COMMENT
+FRED_UNEMPLOYEMENT_RATE,NUMBER,CONSUMER_PRICE_INDEX_SEASONALLY_ADJUSTED,YES,,38,2,Average price change of a basket of goods and services in the economy seasonally adjusted
+FRED_UNEMPLOYEMENT_RATE,NUMBER,TWO_YEAR_TREASURY_CONSTANT,YES,,38,2,Interest rate or yield associated with the Two-Year Treasury Constant Maturity
+FRED_UNEMPLOYEMENT_RATE,DATE,OBSERVATION_DATE,YES,,,,Date for which the economic and financial data is recorded or reported
+FRED_UNEMPLOYEMENT_RATE,NUMBER,FEDERAL_FUNDS,YES,,38,2,Interest rate at which depository institutions (banks) lend reserve balances to other depository institutions overnight on an uncollateralized basis
+FRED_UNEMPLOYEMENT_RATE,NUMBER,UNEMPLOYMENT_RATE_SEASONALLY_ADJUSTED,YES,,38,2,Data on the seasonally adjusted unemployment rate
+FRED_UNEMPLOYEMENT_RATE,NUMBER,M2_NOT_SEASONALLY_ADJUSTED,YES,,38,2,"Broad measure of the money supply that includes cash, checking deposits, savings deposits, and other liquid assets"
+FRED_UNEMPLOYEMENT_RATE,NUMBER,UNEMPLOYMENT_RATE_NOT_SEASONALLY_ADJUSTED,YES,,38,2,Data which measures percentage of the labor force that is unemployed and actively seeking employment
+FRED_UNEMPLOYEMENT_RATE,NUMBER,TREASURY_SECURITIES,YES,,38,2,Represent yields or interest rates of U.S. Treasury securities
+FRED_UNEMPLOYEMENT_RATE,NUMBER,CONSUMER_PRICE_INDEX_NOT_SEASONALLY_ADJUSTED,YES,,38,2,Average price change of a basket of goods and services in the economy not seasonally adjusted
+FRED_UNEMPLOYEMENT_RATE,NUMBER,M2_SEASONALLY_ADJUSTED,YES,,38,2,Data related to the seasonally adjusted M2 money supply

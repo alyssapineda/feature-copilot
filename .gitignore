@@ -1,5 +1,4 @@
 __pycache__/
 .streamlit/secrets.toml
-csv/*
 .DS_Store
 .venv/*

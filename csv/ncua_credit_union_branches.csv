@@ -1,0 +1,15 @@
+TABLE_NAME,DATA_TYPE,COLUMN_NAME,IS_NULLABLE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COMMENT
+NCUA_CREDIT_UNION_BRANCHES,TEXT,SITE_TYPE,YES,100,,," A categorization of the type or function of the site (e.g., main office, branch, etc.) "
+NCUA_CREDIT_UNION_BRANCHES,NUMBER,JOIN_NUMBER,YES,,38,0,A numeric identifier associated with the credit unions membership or affiliation.
+NCUA_CREDIT_UNION_BRANCHES,TEXT,COUNTY_NAME,YES,50,,,The name of the county in which the branch or site is located.
+NCUA_CREDIT_UNION_BRANCHES,TEXT,PHYSICAL_ADDRESS_LINE_2,YES,100,,,"The second line of the physical address, if applicable."
+NCUA_CREDIT_UNION_BRANCHES,TEXT,MAIN_OFFICE,YES,100,,," Indicates whether the site is the main office of the credit union (Yes/No)."
+NCUA_CREDIT_UNION_BRANCHES,TEXT,PHYSICAL_ADDRESS_LINE_1,YES,100,,,The first line of the physical address of the branch or site.
+NCUA_CREDIT_UNION_BRANCHES,NUMBER,CREDIT_UNION_NO,YES,,38,0,A unique identification number assigned to each credit union within the system.
+NCUA_CREDIT_UNION_BRANCHES,TEXT,SITE_NAME,YES,100,,,The name or designation of the branch or site within the credit union.
+NCUA_CREDIT_UNION_BRANCHES,TEXT,CREDIT_UNION_NAME,YES,100,,,The name of the credit union to which the branch or site belongs.
+NCUA_CREDIT_UNION_BRANCHES,NUMBER,SITE_ID,YES,,38,0,An identifier for the specific site or branch within the credit union network.
+NCUA_CREDIT_UNION_BRANCHES,TEXT,STATE_CODE,YES,50,,,The code representing the state where the branch or site is situated.
+NCUA_CREDIT_UNION_BRANCHES,TEXT,CITY,YES,100,,,The city where the branch or site is located.
+NCUA_CREDIT_UNION_BRANCHES,TEXT,POSTAL_CODE,YES,50,,,The postal code or ZIP code of the branch or sites location.
+NCUA_CREDIT_UNION_BRANCHES,DATE,CYCLE_DATE,YES,,,,The date when the data for this record was collected or processed.
