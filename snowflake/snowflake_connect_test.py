@@ -1,12 +1,11 @@
+from os_secrets import get_secrets_path
 import streamlit as st
 import snowflake.connector
 import toml
 
 def get_credentials():
-    #Change to where your own secrets path is
-    secrets_path = '/Users/alyssapineda/feature-copilot/feature-copilot/.streamlit/secrets.toml'
     try:
-        secrets = toml.load(secrets_path)
+        secrets = toml.load(get_secrets_path())
         snowflake_credentials = secrets.get("snowflake",{})
         return snowflake_credentials
     except Exception as e: 
@@ -42,24 +41,3 @@ def test_snowflake_connection(username, password, account, warehouse, database, 
         return f"Connected to Snowflake using current role: {result[0]}"
     except Exception as e:
         return f"Snowflake connection error: {str(e)}"
-
-
-if __name__ == "__main__":
-    snowflake_credentials = get_credentials()
-
-
-    if snowflake_credentials:
-        result = test_snowflake_connection(
-            snowflake_credentials['SNOWFLAKE_USER'],
-            snowflake_credentials['SNOWFLAKE_PASSWORD'],
-            snowflake_credentials['SNOWFLAKE_ACCOUNT'],
-            snowflake_credentials['SNOWFLAKE_WAREHOUSE'],  
-            snowflake_credentials['SNOWFLAKE_DATABASE'],
-            snowflake_credentials['SNOWFLAKE_SCHEMA']            
-        )
-        print(result)
-    else:
-        print("Unable to connect to snowflake.")
-
-
-
