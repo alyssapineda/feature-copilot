@@ -1,8 +1,14 @@
+import re
+import warnings
 from snowflake import snowflake_connect_test
 from supabase_utils import supabase_connect, ingest
 from utils import snow_connect
 import streamlit as st
 from utils.snowddls import Snowddl
+from chain import load_chain
+from utils.snowchat_ui import StreamlitUICallbackHandler, message_func
+from utils.snow_connect import SnowflakeConnection
+from snowflake.snowpark.exceptions import SnowparkSQLException
 
 INITIAL_MESSAGE = [
     {"role": "user", "content": "Hi!"},
@@ -17,6 +23,7 @@ MODEL = "GPT-3.5"
 ## Test through here
 def main():
 
+    warnings.filterwarnings("ignore")
     chat_history = []
     snow_ddl = Snowddl()
 
@@ -28,6 +35,31 @@ def main():
     if prompt := st.chat_input():
         st.session_state.messages.append({"role": "user", "content": prompt})
 
+    for message in st.session_state.messages:
+        message_func(
+            message["content"],
+            True if message["role"] == "user" else False,
+            True if message["role"] == "data" else False,
+        )
+
+    callback_handler = StreamlitUICallbackHandler()
+
+    chain = load_chain(st.session_state["model"], callback_handler)
+
+    if st.session_state.messages[-1]["role"] != "assistant":
+        content = st.session_state.messages[-1]["content"]
+        if isinstance(content, str):
+            result = chain(
+                {"question": content, "chat_history": st.session_state["history"]}
+            )["answer"]
+            print(result)
+            append_message(result, callback_handler)
+            # if get_sql(result):
+            #     conn = SnowflakeConnection().get_session()
+            #     df = execute_sql(get_sql(result), conn)
+            #     if df is not None:
+            #         callback_handler.display_dataframe(df)
+            #         append_message(df, "data", True)
 
     # snow = snow_connect.SnowflakeConnection()
     # connection = snow.get_session()
@@ -84,6 +116,53 @@ def initialise_chat():
 
     if "model" not in st.session_state:
         st.session_state["model"] = MODEL
+
+def append_chat_history(question, answer):
+    st.session_state["history"].append((question, answer))
+
+
+def get_sql(text):
+    sql_match = re.search(r"```sql\n(.*)\n```", text, re.DOTALL)
+    return sql_match.group(1) if sql_match else None
+
+
+def append_message(content, callback_handler, role="assistant", display=False):
+    message = {"role": role, "content": content}
+    st.session_state.messages.append(message)
+    if role != "data":
+        append_chat_history(st.session_state.messages[-2]["content"], content)
+
+    if callback_handler.has_streaming_ended:
+        callback_handler.has_streaming_ended = False
+        return
+
+
+# def handle_sql_exception(query, conn, e, retries=2):
+#     append_message("Uh oh, I made an error, let me try to fix it..")
+#     error_message = (
+#         "You gave me a wrong SQL. FIX The SQL query by searching the schema definition:  \n```sql\n"
+#         + query
+#         + "\n```\n Error message: \n "
+#         + str(e)
+#     )
+#     new_query = chain({"question": error_message, "chat_history": ""})["answer"]
+#     append_message(new_query)
+#     if get_sql(new_query) and retries > 0:
+#         return execute_sql(get_sql(new_query), conn, retries - 1)
+#     else:
+#         append_message("I'm sorry, I couldn't fix the error. Please try again.")
+#         return None
+
+
+# def execute_sql(query, conn, retries=2):
+#     if re.match(r"^\s*(drop|alter|truncate|delete|insert|update)\s", query, re.I):
+#         append_message("Sorry, I can't execute queries that can modify the database.")
+#         return None
+#     try:
+#         return conn.sql(query).collect()
+#     except SnowparkSQLException as e:
+#         return handle_sql_exception(query, conn, e, retries)
+
 
 
 if __name__ == "__main__":
