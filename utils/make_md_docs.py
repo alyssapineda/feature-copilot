@@ -1,9 +1,6 @@
-from utils.credentials import Credentials
 import csv
-import pandas as pd
+import json
 
-#Change path
-PATH = Credentials.get_csv_path(filename="fred_financial_labor_performance.csv")
 
 def read_csv(csv_file):
   columns = []
@@ -14,9 +11,9 @@ def read_csv(csv_file):
           columns.append(row)
   return columns
 
-def generate_md_doc(number, name, header, description, output_file, columns):
+def generate_md_doc(table_number, table_name, table_header, table_description, output_file, columns):
   with open(output_file, 'w') as md_doc:
-    md_doc.write(f"**Table {table_number}: {table_name}** ({table_header} information)\n\nThis table contains information about {table_description.lower()} and their attributes\n")
+    md_doc.write(f"**Table {table_number}: {table_name}** ({table_header})\n\n{table_description}\n")
     md_doc.write("\n")
 
     for column in columns:
@@ -40,11 +37,32 @@ def generate_md_doc(number, name, header, description, output_file, columns):
       md_doc.write(f" - {comment} (Nullable: {is_nullable})\n")
       md_doc.write("\n")
 
-#Change table number, table name, table header, table description, output md path
-table_number = "2"
-table_name = "banking_analytics_bundle.banking_insights.Financial Labout Performance".upper()
-table_header = "Economic and Financial Labor Performance Data"
-table_description = "related to economic and financial labor performance, including employment, industrial production, and labor force participation"
-output_md_path = '/Users/alyssapineda/feature-copilot/feature-copilot/docs/fred_financial_labor_performance.md'
-columns = read_csv(PATH)
-generate_md_doc(table_number, table_name, table_header, table_description, output_md_path, columns)
+def collect_table_info(csv_info):
+  csv_path = csv_info['path']
+  table_number = csv_info['table_number']
+  table_name = csv_info['table_name']
+  table_header = csv_info['table_header']
+  table_description = csv_info['table_description']
+  output_md_path= f"docs/{table_name}.md"
+  
+  columns = read_csv(csv_path)
+  generate_md_doc(table_number, table_name, table_header, table_description, output_md_path, columns)
+
+
+
+def main():
+  #TO-DO: To scale, you move this csv_file_list as json?
+  #If we have unlabelled company tables, how would we know what table header and descriptions to put?
+  #Instead of saving csv files to csv folder, can connect to snowflake?
+
+  with open('table_info.json', 'r') as table_info:
+    table_info_list = json.load(table_info)
+
+    for tables in table_info_list:
+      collect_table_info(tables)
+
+
+
+
+if __name__ == "__main__":
+  main()
