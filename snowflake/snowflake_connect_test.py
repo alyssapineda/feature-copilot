@@ -1,16 +1,7 @@
-from os_secrets import get_secrets_path
+from utils.credentials import Credentials
 import streamlit as st
 import snowflake.connector
 import toml
-
-def get_credentials():
-    try:
-        secrets = toml.load(get_secrets_path())
-        snowflake_credentials = secrets.get("snowflake",{})
-        return snowflake_credentials
-    except Exception as e: 
-        print("Error: ",e)
-        return None
 
 def test_snowflake_connection(username, password, account, warehouse, database, schema):
     try:

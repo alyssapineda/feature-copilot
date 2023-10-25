@@ -7,8 +7,7 @@ from langchain.text_splitter import CharacterTextSplitter
 from langchain.vectorstores import SupabaseVectorStore
 from pydantic import BaseModel
 from supabase.client import Client, create_client
-import os_secrets
-import toml
+from utils.credentials import Credentials
 
 class Secrets(BaseModel):
     SUPABASE_URL: str
@@ -42,23 +41,14 @@ class DocumentProcessor:
         )
         return vector_store
 
-def getCredentials():
-    try:
-        secrets = toml.load(os_secrets.get_secrets_path())
-        snowflake_credentials = secrets.get("supabase",{})
-        return snowflake_credentials, secrets["OPENAI_API_KEY"]
-    except Exception as e: 
-        print("Error: ",e)
-        return None
-
 def run():
 
-    credentials, openai_api_key = getCredentials()
+    secrets = Credentials.get_credentials()
 
     secrets = Secrets(
-        SUPABASE_URL=credentials["SUPABASE_URL"],
-        SUPABASE_SERVICE_KEY=credentials["SUPABASE_API_KEY"],
-        OPENAI_API_KEY=openai_api_key,
+        SUPABASE_URL=secrets["SUPABASE_URL"],
+        SUPABASE_SERVICE_KEY=secrets["SUPABASE_API_KEY"],
+        OPENAI_API_KEY=secrets["OPENAI_API_KEY"],
     )
     config = Config()
     doc_processor = DocumentProcessor(secrets, config)
