@@ -26,8 +26,7 @@ def get_credentials():
     secrets_path = get_secrets_path()
     try:
         secrets = toml.load(secrets_path)
-        supabase_credentials = secrets.get("supabase",{})
-        return supabase_credentials
+        return secrets
     except Exception as e: 
         print("Error: ",e)
         return None
@@ -52,7 +51,7 @@ class ModelConfig(BaseModel):
 class ModelWrapper:
     def __init__(self, config: ModelConfig):
         self.model_type = config.model_type
-        self.secrets = config.secrets
+        self.secrets = get_credentials()
         self.callback_handler = config.callback_handler
         self.setup()
 
@@ -60,7 +59,7 @@ class ModelWrapper:
       self.setup_gpt()
 
     def setup_gpt(self):
-        self.q_llm = OpenAI(
+        self.q_llm = ChatOpenAI(
             temperature=0.1,
             openai_api_key=self.secrets["OPENAI_API_KEY"],
             model_name="gpt-3.5-turbo-16k",
@@ -89,7 +88,7 @@ class ModelWrapper:
         return conv_chain
 
 def load_chain(model_name="GPT-3.5", callback_handler=None):
-    supabase_credentials = get_credentials()
+    supabase_credentials = get_credentials().get("supabase")
     supabase_url = supabase_credentials["SUPABASE_URL"]
     supabase_key = supabase_credentials["SUPABASE_API_KEY"]
     supabase_client: Client = create_client(supabase_url, supabase_key)
@@ -162,5 +161,5 @@ def load_chain(model_name="GPT-3.5", callback_handler=None):
   # else:
   #   print("Cannot retrieve credentials from secrets toml")
 
-if __name__ == "__main__":
-  load_chain()
+# if __name__ == "__main__":
+#     load_chain()
