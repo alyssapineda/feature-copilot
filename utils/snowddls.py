@@ -6,10 +6,10 @@ class Snowddl:
     def load_ddls():
         ddl_files = {
             "FDIC": "sql/select_fdic.sql",
-            "FRED FINANCIAL LABOUR": "sql/select_fred_financial_labour.sql",
+            "FRED FINANCIAL LABOUR PERFORMANCE": "sql/select_fred_financial_labour.sql",
             "FRED INTEREST DATA": "sql/select_fred_interest_data.sql",
             "FRED UNEPLOYMENT": "sql/select_fred_unemployment.sql",
-            "NCUA CREDIT": "sql/ncua_credit.sql",
+            "NCUA CREDIT": "sql/select_ncua_credit.sql",
         }
 
         ddl_dict = {}
