@@ -18,9 +18,9 @@ from pydantic import BaseModel, validator
 from supabase import create_client, Client
 from template import CONDENSE_QUESTION_PROMPT, QA_PROMPT
 
-supabase_url = st.secrets["SUPABASE_URL"]
-supabase_key = st.secrets["SUPABASE_SERVICE_KEY"]
-supabase: Client = create_client(supabase_url, supabase_key)
+# supabase_url = st.secrets["SUPABASE_URL"]
+# supabase_key = st.secrets["SUPABASE_SERVICE_KEY"]
+# supabase: Client = create_client(supabase_url, supabase_key)
 
 def get_credentials():
     secrets_path = get_secrets_path()
@@ -89,12 +89,17 @@ class ModelWrapper:
         return conv_chain
 
 def load_chain(model_name="GPT-3.5", callback_handler=None):
+    supabase_credentials = get_credentials()
+    supabase_url = supabase_credentials["SUPABASE_URL"]
+    supabase_key = supabase_credentials["SUPABASE_API_KEY"]
+    supabase_client: Client = create_client(supabase_url, supabase_key)
+
     embeddings = OpenAIEmbeddings(
         openai_api_key=st.secrets["OPENAI_API_KEY"], model="text-embedding-ada-002"
     )
     vectorstore = SupabaseVectorStore(
         embedding=embeddings,
-        client=supabase,
+        client=supabase_client,
         table_name="documents",
         query_name="v_match_documents",
     )
