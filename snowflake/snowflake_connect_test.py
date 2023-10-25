@@ -3,7 +3,8 @@ import snowflake.connector
 import toml
 
 def get_credentials():
-    secrets_path = '/path/to/feature-copilot/.streamlit/secrets.toml'
+    #Change to where your own secrets path is
+    secrets_path = '/Users/alyssapineda/feature-copilot/feature-copilot/.streamlit/secrets.toml'
     try:
         secrets = toml.load(secrets_path)
         snowflake_credentials = secrets.get("snowflake",{})
