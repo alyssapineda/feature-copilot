@@ -37,42 +37,42 @@ def get_credentials():
 
 def create_supabase_client(credentials):
   print("Establish client connection....")
-  
 
 
-# def get_chain(vectorstore):
-#   """
-#   Get chain for chatting with vector database  
-#   """
 
-#   q_llm = OpenAI(
-#     temperature = 0,
-#     openai_api_key=st.secrets["OPENAI_API_KEY"],
-#     model_name="gpt-3.5-turbo-16k",
-#   )
+def get_chain(vectorstore):
+  """
+  Get chain for chatting with vector database  
+  """
 
-#   llm = ChatOpenAI(
-#     temperature=0,
-#     openai_api_key=st.secrets["OPENAI_API_KEY"],
-#     model_name="gpt-3.5-turbo",
-#   )
+  q_llm = OpenAI(
+    temperature = 0,
+    openai_api_key=st.secrets["OPENAI_API_KEY"],
+    model_name="gpt-3.5-turbo-16k",
+  )
 
-#   question_generator = LLMChain(llm=q_llm, prompt=CONDENSE_QUESTION_PROMPT)
+  llm = ChatOpenAI(
+    temperature=0,
+    openai_api_key=st.secrets["OPENAI_API_KEY"],
+    model_name="gpt-3.5-turbo",
+  )
 
-#   doc_chain = load_qa_chain(llm=llm, chain_type="stuff", prompt=QA_PROMPT)
-#   chain = ConversationalRetrievalChain(
-#       retriever=vectorstore.as_retriever(),
-#       combine_docs_chain=doc_chain,
-#       question_generator=question_generator,
-#   )
-#   return chain
+  question_generator = LLMChain(llm=q_llm, prompt=CONDENSE_QUESTION_PROMPT)
 
-# chain = get_chain(SupabaseVectorStore)
-# print(chain)
+  doc_chain = load_qa_chain(llm=llm, chain_type="stuff", prompt=QA_PROMPT)
+  chain = ConversationalRetrievalChain(
+      retriever=vectorstore.as_retriever(),
+      combine_docs_chain=doc_chain,
+      question_generator=question_generator,
+  )
+  return chain
 
-# def main():
-#   chain = get_chain(SupabaseVectorStore)
-#   print(chain)
+chain = get_chain(SupabaseVectorStore)
+print(chain)
 
-# if __name__ == "__main__":
-#   main()
+def main():
+  chain = get_chain(SupabaseVectorStore)
+  print(chain)
+
+if __name__ == "__main__":
+  main()
