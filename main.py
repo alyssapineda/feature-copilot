@@ -1,14 +1,15 @@
 from snowflake import snowflake_connect_test
 from supabase_utils import supabase_connect, ingest
+from utils import snow_connect
 
 ## Test through here
 def main():
 
     #supabase_client = supabase_connect.create_supabase_client()
 
-    print("Converting .md to vectors and storing in supabase")
-    ingest.run()
-    print("Successfully converted and stored in supabase")
+    #print("Converting .md to vectors and storing in supabase")
+    #ingest.run()
+    #print("Successfully converted and stored in supabase")
 
     # snowflake_credentials = snowflake_connect_test.get_credentials()
 
@@ -24,6 +25,10 @@ def main():
     #     print(result)
     # else:
     #     print("Unable to connect to snowflake.")
+
+    snow = snow_connect.SnowflakeConnection()
+    connection = snow.get_session()
+    print(connection)
 
 if __name__ == "__main__":
     main()
