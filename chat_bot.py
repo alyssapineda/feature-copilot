@@ -18,7 +18,6 @@ def initialise_ui(ddl):
     with open("ui/styles.md", "r") as styles_file:
         styles_content = styles_file.read()
 
-    
     # Display the DDL for the selected table
     st.sidebar.markdown(sidebar_content)
 
@@ -30,11 +29,11 @@ def initialise_ui(ddl):
     st.sidebar.code(ddl.ddl_dict[selected_table], language="sql")
 
     # Add a reset button
-    if st.sidebar.button("Reset Chat"):
-        for key in st.session_state.keys():
-            del st.session_state[key]
-        st.session_state["messages"] = constants.INITIAL_MESSAGE
-        st.session_state["history"] = []
+    # if st.sidebar.button("Reset Chat"):
+    #     for key in st.session_state.keys():
+    #         del st.session_state[key]
+    #     st.session_state["messages"] = constants.INITIAL_MESSAGE
+    #     st.session_state["history"] = []
 
     st.sidebar.markdown(
         "**Note:** <span style='color:red'>The snowflake data retrieval is disabled for now.</span>",
