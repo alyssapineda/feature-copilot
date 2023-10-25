@@ -35,10 +35,11 @@ def get_credentials():
         print("Error: ",e)
         return None
 
-def create_supabase_client(credentials):
-  print("Establish client connection....")
-
-
+def create_supabase_client(url, key):
+  print("...Testing connectivity...")
+  supabase: Client = create_client(url, key)
+  print("...Connection Established...")
+  return supabase
 
 def get_chain(vectorstore):
   """
@@ -67,12 +68,22 @@ def get_chain(vectorstore):
   )
   return chain
 
-chain = get_chain(SupabaseVectorStore)
-print(chain)
+
 
 def main():
-  chain = get_chain(SupabaseVectorStore)
-  print(chain)
+  supabase_credentials = get_credentials()
+  if supabase_credentials:
+    result = create_supabase_client(
+    supabase_credentials['SUPABASE_URL'],
+    supabase_credentials['SUPABASE_SERVICE_KEY']        
+    )
+    print(result)
+
+    # chain = get_chain(SupabaseVectorStore)
+    # print(chain)
+
+  else:
+    print("Cannot retrieve credentials from secrets toml")
 
 if __name__ == "__main__":
   main()
