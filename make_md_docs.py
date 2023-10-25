@@ -2,20 +2,20 @@ import csv
 import pandas as pd
 
 #Change path
-path = '/path/to/feature-copilot/csv/fdic.csv'
+path = '/Users/alyssapineda/feature-copilot/feature-copilot/csv/fred_financial_labor_performance.csv'
 
 def read_csv(csv_file):
   columns = []
-  #TO-DO: further pre processing to deal with weird gaps in comments column
+  #TO-DO: further pre processing to deal with weird gaps in comments column?
   with open(csv_file, 'r', newline='') as file:
       reader = csv.DictReader(file)
       for row in reader:
           columns.append(row)
   return columns
 
-def generate_md_doc(number, name, description, output_file, columns):
+def generate_md_doc(number, name, header, description, output_file, columns):
   with open(output_file, 'w') as md_doc:
-    md_doc.write(f"**Table {table_number}: {table_name}** ({table_description} information)\n\nThis table contains information about {table_description.lower()} and their attributes\n")
+    md_doc.write(f"**Table {table_number}: {table_name}** ({table_header} information)\n\nThis table contains information about {table_description.lower()} and their attributes\n")
     md_doc.write("\n")
 
     for column in columns:
@@ -39,10 +39,11 @@ def generate_md_doc(number, name, description, output_file, columns):
       md_doc.write(f" - {comment} (Nullable: {is_nullable})\n")
       md_doc.write("\n")
 
-#Change table number, table name and table description, output md path
-table_number = "5"
-table_name = "banking_analytics_bundle.banking_insights.fdic".upper()
-table_description = "Financial Institution Data"
-output_md_path = '/path/to/feature-copilot/docs/test_fdic.md'
+#Change table number, table name, table header, table description, output md path
+table_number = "2"
+table_name = "banking_analytics_bundle.banking_insights.Financial Labout Performance".upper()
+table_header = "Economic and Financial Labor Performance Data"
+table_description = "related to economic and financial labor performance, including employment, industrial production, and labor force participation"
+output_md_path = '/Users/alyssapineda/feature-copilot/feature-copilot/docs/fred_financial_labor_performance.md'
 columns = read_csv(path)
-generate_md_doc(table_number, table_name, table_description, output_md_path, columns)
+generate_md_doc(table_number, table_name, table_header, table_description, output_md_path, columns)
