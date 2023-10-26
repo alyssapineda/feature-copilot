@@ -7,7 +7,7 @@ import snowflake.connector
 
 class SnowflakeConnection:
     def __init__(self):
-        self.connection_parameters = Credentials.get_credentials()
+        self.connection_parameters = Credentials.get_credentials(section="snowflake")
         self.session = None
 
     def get_session(self):
@@ -23,4 +23,14 @@ class SnowflakeConnection:
                 schema=self.connection_parameters['SNOWFLAKE_SCHEMA']
             )
         return self.session
+
+    # def sql_execution(self):
+    #     sql =""
+    #     if self.session is None:
+    #         cursor = conn.cursor()
+    #         cursor.execute(sql)
+    #         cursor.close()
+
+# if __name__  == "__main__":
+
     
