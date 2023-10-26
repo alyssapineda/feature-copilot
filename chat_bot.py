@@ -58,7 +58,7 @@ def initialise_chat():
         st.session_state["history"] = []
 
     if "model" not in st.session_state:
-        st.session_state["model"] = constants.GPT
+        st.session_state["model"] = constants.OPENAI["MODEL_NAME"]
 
 def append_chat_history(question, answer):
     st.session_state["history"].append((question, answer))
