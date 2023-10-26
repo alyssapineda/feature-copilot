@@ -5,11 +5,24 @@ from supabase_utils import supabase_connect, ingest
 from utils.snowddls import Snowddl
 from utils.snowchat_ui import StreamlitUICallbackHandler, message_func
 from utils.snow_connect import SnowflakeConnection
+import re
 
 import chat_bot
 import streamlit as st
 import utils.constants as constants
 import warnings
+
+# def execute_sql(query, conn, retries=2):
+#     if re.match(r"^\s*(drop|alter|truncate|delete|insert|update)\s", query, re.I):
+#         chat_bot.append_message("Sorry, I can't execute queries that can modify the database.")
+#         return None
+#     try:
+#         cursor = conn.cursor()
+#         return cursor.execute(query)
+
+#     except SnowparkSQLException as e:
+#         # return handle_sql_exception(query, conn, e, retries)
+#         return f"Error: {str(e)}"
 
 def main():
     warnings.filterwarnings("ignore")
@@ -20,10 +33,11 @@ def main():
     chat_bot.initialise_ui(snow_ddl)
     chat_bot.initialise_chat()
 
-    # Prompt for user input and save
+    # Prompt for user input and store in st.session_state.messages
     if prompt := st.chat_input():
         st.session_state.messages.append({"role": "user", "content": prompt})
 
+    # Create the message bubbles in UI
     for message in st.session_state.messages:
         message_func(
             message["content"],
@@ -43,16 +57,23 @@ def main():
             )["answer"]
             print(result)
             chat_bot.append_message(result, callback_handler)
-            # if get_sql(result):
-            #     conn = SnowflakeConnection().get_session()
-            #     df = execute_sql(get_sql(result), conn)
-            #     if df is not None:
-            #         callback_handler.display_dataframe(df)
-            #         append_message(df, "data", True)
+            #gets result and extract sql query and make snowflake connection
+            if chat_bot.get_sql(result):
+                conn = SnowflakeConnection().get_session()
+                # print(result)
+                start_string = result.find("```sql")+len("```sql")
+                end_string = result.rfind("```")
+                sql_query = result[start_string:end_string]
+                print(sql_query)
+                cursor = conn.cursor()
+                cursor.execute(sql_query)
+                cursor.close()
 
-    # snow = snow_connect.SnowflakeConnection()
-    # connection = snow.get_session()
-    # print(connection)
+                # df = chat_bot.execute_sql(chat_bot.get_sql(sql_query), conn)
+                # df = execute_sql(sql_query, conn)
+                # if df is not None:
+                #     callback_handler.display_dataframe(df)
+                #     chat_bot.append_message(df, "data", True)
 
 if __name__ == "__main__":
     main()

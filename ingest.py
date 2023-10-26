@@ -46,8 +46,8 @@ def run():
     secrets = Credentials.get_credentials()
 
     secrets = Secrets(
-        SUPABASE_URL=secrets["SUPABASE_URL"],
-        SUPABASE_SERVICE_KEY=secrets["SUPABASE_API_KEY"],
+        SUPABASE_URL=secrets.get("supabase")["SUPABASE_URL"],
+        SUPABASE_SERVICE_KEY=secrets.get("supabase")["SUPABASE_API_KEY"],
         OPENAI_API_KEY=secrets["OPENAI_API_KEY"],
     )
     config = Config()

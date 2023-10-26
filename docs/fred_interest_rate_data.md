@@ -1,4 +1,4 @@
-**Table 3: BANKING_ANALYTICS_BUNDLE.BANKING_INSIGHTS.FRED INTEREST RATE DATA** (Interest Rate Data)
+**Table 3: BANKING_ANALYTICS_BUNDLE.BANKING_INSIGHTS.FRED_INTEREST_RATE_DATA** (Interest Rate Data)
 
 This table contains information about related to interest rates, including treasury bill rates, yield curve rates, and real rates and their attributes
 
