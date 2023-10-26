@@ -9,6 +9,7 @@ import template
 from typing import Any, Callable, Dict, Optional
 from utils.credentials import Credentials
 
+import utils.constants as constants
 import streamlit as st
 
 class ModelConfig(BaseModel):
@@ -61,14 +62,14 @@ class ModelWrapper:
         )
         return conv_chain
 
-def load_chain(model_name="GPT-3.5", callback_handler=None):
+def load_chain(model_name=constants.OPENAI["MODEL_NAME"], callback_handler=None):
     supabase_credentials = Credentials.get_credentials(section="supabase")
     supabase_url = supabase_credentials["SUPABASE_URL"]
     supabase_key = supabase_credentials["SUPABASE_API_KEY"]
     supabase_client: Client = create_client(supabase_url, supabase_key)
 
     embeddings = OpenAIEmbeddings(
-        openai_api_key=st.secrets["OPENAI_API_KEY"], model="text-embedding-ada-002"
+        openai_api_key=st.secrets["OPENAI_API_KEY"], model=constants.OPENAI["EMBEDDING_MODEL"]
     )
     vectorstore = SupabaseVectorStore(
         embedding=embeddings,

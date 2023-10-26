@@ -20,10 +20,11 @@ def main():
     chat_bot.initialise_ui(snow_ddl)
     chat_bot.initialise_chat()
 
-    # Prompt for user input and save
+    # Prompt for user input and store in st.session_state.messages
     if prompt := st.chat_input():
         st.session_state.messages.append({"role": "user", "content": prompt})
 
+    # Create the message bubbles in UI
     for message in st.session_state.messages:
         message_func(
             message["content"],
@@ -49,10 +50,6 @@ def main():
             #     if df is not None:
             #         callback_handler.display_dataframe(df)
             #         append_message(df, "data", True)
-
-    # snow = snow_connect.SnowflakeConnection()
-    # connection = snow.get_session()
-    # print(connection)
 
 if __name__ == "__main__":
     main()
