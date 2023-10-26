@@ -1,16 +1,15 @@
 import chain as chain_utils
-from snowflake import snowflake_connect_test
 from snowflake.snowpark.exceptions import SnowparkSQLException
 from supabase_utils import supabase_connect
 import ingest
+from utils import snowflake_connect_test
 from utils.snowddls import Snowddl
 from utils.snowchat_ui import StreamlitUICallbackHandler, message_func
 from utils.snow_connect import SnowflakeConnection
-import re
+import pandas as pd
 
 import chat_bot
 import streamlit as st
-import utils.constants as constants
 import warnings
 
 # def execute_sql(query, conn, retries=2):
@@ -40,6 +39,7 @@ def main():
 
     # Create the message bubbles in UI
     for message in st.session_state.messages:
+        print(message)
         message_func(
             message["content"],
             True if message["role"] == "user" else False,
@@ -66,15 +66,17 @@ def main():
                 end_string = result.rfind("```")
                 sql_query = result[start_string:end_string]
                 print(sql_query)
-                cursor = conn.cursor()
-                cursor.execute(sql_query)
-                cursor.close()
+                # cursor = conn.cursor()
+                # cursor.execute(sql_query)
+                # cursor.close()
 
                 # df = chat_bot.execute_sql(chat_bot.get_sql(sql_query), conn)
-                # df = execute_sql(sql_query, conn)
-                # if df is not None:
-                #     callback_handler.display_dataframe(df)
-                #     chat_bot.append_message(df, "data", True)
-
+                df = chat_bot.execute_sql(sql_query, conn)
+                # print(type(df))
+                if df is not None:
+                    callback_handler.display_dataframe(df)
+                    chat_bot.append_message(df, "data", True)
+                else:
+                    print("This is empty")
 if __name__ == "__main__":
     main()

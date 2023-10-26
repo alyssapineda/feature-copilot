@@ -1,8 +1,8 @@
 import re
 import streamlit as st
 import utils.constants as constants
-# from langchain_utils import chain as chain_utils
 from snowflake.snowpark.exceptions import SnowparkSQLException
+import pandas as pd
 # from utils.snowchat_ui import StreamlitUICallbackHandler
 
 # callback_handler = StreamlitUICallbackHandler()
@@ -75,9 +75,9 @@ def append_message(content, callback_handler, role="assistant", display=False):
     if role != "data":
         append_chat_history(st.session_state.messages[-2]["content"], content)
 
-    if callback_handler.has_streaming_ended:
-        callback_handler.has_streaming_ended = False
-        return
+    # if callback_handler.has_streaming_ended:
+    #     callback_handler.has_streaming_ended = False
+    #     return
 
 
 # def handle_sql_exception(query, conn, e, retries=2):
@@ -97,14 +97,18 @@ def append_message(content, callback_handler, role="assistant", display=False):
 #         return None
 
 
-# def execute_sql(query, conn, retries=2):
-#     if re.match(r"^\s*(drop|alter|truncate|delete|insert|update)\s", query, re.I):
-#         append_message("Sorry, I can't execute queries that can modify the database.")
-#         return None
-#     try:
-#         # return conn.sql(query).collect()
-#         return conn.cursor.execute(query)
+def execute_sql(query, conn, retries=2):
+    if re.match(r"^\s*(drop|alter|truncate|delete|insert|update)\s", query, re.I):
+        append_message("Sorry, I can't execute queries that can modify the database.")
+        return None
+    try:
+        # return conn.sql(query).collect()
+        cursor = conn.cursor()
+        cursor.execute(query)
 
-#     except SnowparkSQLException as e:
-#         # return handle_sql_exception(query, conn, e, retries)
-#         return f"Error: {str(e)}"
+        output = cursor.fetch_pandas_all()
+        return output
+
+    except SnowparkSQLException as e:
+        # return handle_sql_exception(query, conn, e, retries)
+        return f"Error: {str(e)}"

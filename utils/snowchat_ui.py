@@ -1,5 +1,6 @@
 import html
 import re
+import pandas as pd
 
 import streamlit as st
 from langchain.callbacks.base import BaseCallbackHandler
@@ -42,7 +43,9 @@ def message_func(text, is_user=False, is_df=False):
         message_bg_color = "#71797E"
         avatar_class = "bot-avatar"
 
-        if is_df:
+        if is_df or isinstance(text, pd.DataFrame):
+        #if is_df or type(text) == "<class 'pandas.core.frame.DataFrame'>":
+        # if is_df == type(text):
             st.write(
                 f"""
                     <div style="display: flex; align-items: center; margin-bottom: 10px; justify-content: {message_alignment};">
