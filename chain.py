@@ -5,7 +5,7 @@ from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import SupabaseVectorStore
 from pydantic import BaseModel, validator
 from supabase import create_client, Client
-from template import CONDENSE_QUESTION_PROMPT, QA_PROMPT
+import template
 from typing import Any, Callable, Dict, Optional
 from utils.credentials import Credentials
 
@@ -34,7 +34,7 @@ class ModelWrapper:
 
     def setup_gpt(self):
         self.q_llm = ChatOpenAI(
-            temperature=0.1,
+            temperature=0.0,
             openai_api_key=self.secrets["OPENAI_API_KEY"],
             model_name="gpt-3.5-turbo-16k",
             max_tokens=500,
@@ -42,7 +42,7 @@ class ModelWrapper:
 
         self.llm = ChatOpenAI(
             model_name="gpt-3.5-turbo-16k",
-            temperature=0.5,
+            temperature=0.0,
             openai_api_key=self.secrets["OPENAI_API_KEY"],
             max_tokens=500,
             callbacks=[self.callback_handler],
@@ -52,8 +52,8 @@ class ModelWrapper:
     def get_chain(self, vectorstore):
         if not self.q_llm or not self.llm:
             raise ValueError("Models have not been properly initialized.")
-        question_generator = LLMChain(llm=self.q_llm, prompt=CONDENSE_QUESTION_PROMPT)
-        doc_chain = load_qa_chain(llm=self.llm, chain_type="stuff", prompt=QA_PROMPT)
+        question_generator = LLMChain(llm=self.q_llm, prompt=template.CONDENSE_QUESTION_PROMPT)
+        doc_chain = load_qa_chain(llm=self.llm, chain_type="stuff", prompt=template.QA_PROMPT)
         conv_chain = ConversationalRetrievalChain(
             retriever=vectorstore.as_retriever(),
             combine_docs_chain=doc_chain,

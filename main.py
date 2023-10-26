@@ -1,4 +1,4 @@
-from langchain_utils import chain as chain_utils
+import chain as chain_utils
 from snowflake import snowflake_connect_test
 from snowflake.snowpark.exceptions import SnowparkSQLException
 from supabase_utils import supabase_connect, ingest
