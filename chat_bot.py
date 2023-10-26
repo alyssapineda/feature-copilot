@@ -1,7 +1,6 @@
 import re
 import streamlit as st
 import utils.constants as constants
-# from langchain_utils import chain as chain_utils
 from snowflake.snowpark.exceptions import SnowparkSQLException
 # from utils.snowchat_ui import StreamlitUICallbackHandler
 

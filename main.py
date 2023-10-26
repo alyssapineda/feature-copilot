@@ -1,15 +1,13 @@
 import chain as chain_utils
-from snowflake import snowflake_connect_test
 from snowflake.snowpark.exceptions import SnowparkSQLException
-from supabase_utils import supabase_connect, ingest
+from utils import snowflake_connect_test
+from utils import supabase_connect, ingest
 from utils.snowddls import Snowddl
 from utils.snowchat_ui import StreamlitUICallbackHandler, message_func
 from utils.snow_connect import SnowflakeConnection
-import re
 
 import chat_bot
 import streamlit as st
-import utils.constants as constants
 import warnings
 
 # def execute_sql(query, conn, retries=2):
