@@ -1,7 +1,8 @@
 import chain as chain_utils
 from snowflake import snowflake_connect_test
 from snowflake.snowpark.exceptions import SnowparkSQLException
-from supabase_utils import supabase_connect, ingest
+from supabase_utils import supabase_connect
+import ingest
 from utils.snowddls import Snowddl
 from utils.snowchat_ui import StreamlitUICallbackHandler, message_func
 from utils.snow_connect import SnowflakeConnection

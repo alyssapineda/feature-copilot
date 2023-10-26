@@ -35,7 +35,7 @@ class ModelWrapper:
 
     def setup_gpt(self):
         self.q_llm = ChatOpenAI(
-            temperature=0.5,
+            temperature=0.0,
             openai_api_key=self.secrets["OPENAI_API_KEY"],
             model_name="gpt-3.5-turbo-16k",
             max_tokens=500,

@@ -32,6 +32,7 @@ Here are some examples:
             FROM BANKING_ANALYTICS_BUNDLE.BANKING_INSIGHTS.FDIC
             GROUP BY STATE_NAME;
             "
+
     "question": "what banks have failed and what were their acquiring institutions",
     "context": 
             "
@@ -39,6 +40,7 @@ Here are some examples:
             FROM BANKING_ANALYTICS_BUNDLE.BANKING_INSIGHTS.FDIC 
             WHERE failed_banklist IS NOT NULL;
             "
+
     "question": "Find the average industrial production for each observation date",
     "context": 
             "
@@ -46,6 +48,7 @@ Here are some examples:
             FROM BANKING_ANALYTICS_BUNDLE.BANKING_INSIGHTS.FRED_FINANCIAL_LABOR_PERFORMANCE
             GROUP BY OBSERVATION_DATE;
             "
+
     "question": "Retrieve the unemployment rate and consumer price index for a specific date",
     "context": 
             "
@@ -53,32 +56,53 @@ Here are some examples:
             FROM BANKING_ANALYTICS_BUNDLE.BANKING_INSIGHTS.FRED_UNEMPLOYMENT_RATE_DATA
             WHERE OBSERVATION_DATE = '2022-01-01';
             "
+
     "question": "Get the total nonfarm employment and labor force participation rate for each observation date",
     "context": 
             "
             SELECT OBSERVATION_DATE, ALL_EMPLOYEES_TOTAL_NONFARM_SEASONALLY_ADJUSTED, LABOR_FORCE_PARTICIPATION_RATE_SEASONALLY_ADJUSTED
             FROM BANKING_ANALYTICS_BUNDLE.BANKING_INSIGHTS.FRED_FINANCIAL_LABOR_PERFORMANCE;
             "
-    "question": "Can you provide a breakdown of customer churn rates by age group and subscription plan?",
+
+    "question": "analyse treasury securities data to assess interest rate sensitivity",
     "context": 
             "
-
+            SELECT AVG(DTYCR_4_MO) AS AVERAGE_4_MONTH_TREASURY_RATE
+            FROM BANKING_ANALYTICS_BUNDLE.BANKING_INSIGHTS.FRED_INTEREST_RATE_DATA;
             "
-    "question": "What is the correlation between customer satisfaction scores and product reviews?",
+
+    "question": "what city has the largest amount of failed banks",
     "context": 
             "
-
+            SELECT CITY, COUNT(*) AS NUMBER_OF_FAILED_BANKS
+            FROM BANKING_ANALYTICS_BUNDLE.BANKING_INSIGHTS.FDIC
+            GROUP BY CITY
+            ORDER BY NUMBER_OF_FAILED_BANKS DESC
+            LIMIT 1;
             "
-    "question": "Which marketing campaigns have the highest return on investment (ROI) based on customer acquisition and revenue generated?",
+
+    "question": "show me data for daily treasury par yield curve rates for 4-month",
     "context": 
             "
-
+            SELECT DTYCR_4_MO
+            FROM BANKING_ANALYTICS_BUNDLE.BANKING_INSIGHTS.FRED_INTEREST_RATE_DATA;
             "
-    "question": "Can you identify any patterns or trends in customer behavior based on their purchase history and demographic information?",
+
+    "question": "Retrieve the long term treasury rates",
     "context": 
             "
-
+            SELECT DTLTR_LT_COMPOSITE_GREATER_THAN_10_YRS
+            FROM BANKING_ANALYTICS_BUNDLE.BANKING_INSIGHTS.FRED_INTEREST_RATE_DATA;
             "
+
+    "question": "identify all non-failed banks",
+    "context": 
+            "
+            SELECT *
+            FROM BANKING_ANALYTICS_BUNDLE.BANKING_INSIGHTS.FDIC
+            WHERE BANK_CLASS <> 'failed';
+            "
+
 
 
 
