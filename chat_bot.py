@@ -1,6 +1,13 @@
 import re
 import streamlit as st
 import utils.constants as constants
+# from langchain_utils import chain as chain_utils
+from snowflake.snowpark.exceptions import SnowparkSQLException
+# from utils.snowchat_ui import StreamlitUICallbackHandler
+
+# callback_handler = StreamlitUICallbackHandler()
+# chain = chain_utils.load_chain(st.session_state["model"], callback_handler)
+
 
 def initialise_ui(ddl):
     st.title("Features Copilot")
@@ -95,6 +102,9 @@ def append_message(content, callback_handler, role="assistant", display=False):
 #         append_message("Sorry, I can't execute queries that can modify the database.")
 #         return None
 #     try:
-#         return conn.sql(query).collect()
+#         # return conn.sql(query).collect()
+#         return conn.cursor.execute(query)
+
 #     except SnowparkSQLException as e:
-#         return handle_sql_exception(query, conn, e, retries)
+#         # return handle_sql_exception(query, conn, e, retries)
+#         return f"Error: {str(e)}"
