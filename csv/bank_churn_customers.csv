@@ -1,0 +1,15 @@
+TABLE_NAME,DATA_TYPE,COLUMN_NAME,IS_NULLABLE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COMMENT
+BANK_CHURN_CUSTOMERS,NUMBER,NUM_OF_PRODUCTS,YES,,38,0,Number of financial products used by the customer.
+BANK_CHURN_CUSTOMERS,NUMBER,IS_ACTIVE_MEMBER,YES,,38,0,"Indicates if the customer is an active member (1 for yes, 0 for no)."
+BANK_CHURN_CUSTOMERS,NUMBER,CREDIT_SCORE,YES,,38,0,Credit score of the customer.
+BANK_CHURN_CUSTOMERS,TEXT,SURNAME,YES,100,,,Last name of the customer.
+BANK_CHURN_CUSTOMERS,TEXT,GEOGRAPHY,YES,100,,,Geographical location of the customer.
+BANK_CHURN_CUSTOMERS,NUMBER,ESTIMATED_SALARY,YES,,38,0,Estimated annual salary of the customer.
+BANK_CHURN_CUSTOMERS,NUMBER,BALANCE,YES,,38,0,Account balance of the customer.
+BANK_CHURN_CUSTOMERS,TEXT,GENDER,YES,100,,,Gender of the customer.
+BANK_CHURN_CUSTOMERS,NUMBER,AGE,YES,,38,0,Age of the customer.
+BANK_CHURN_CUSTOMERS,NUMBER,CUSTOMER_ID,YES,,38,0,Unique identifier for the customer.
+BANK_CHURN_CUSTOMERS,NUMBER,EXITED,YES,,38,0,"Indicates if the customer has exited the bank (1 for yes, 0 for no)."
+BANK_CHURN_CUSTOMERS,NUMBER,TENURE,YES,,38,0,Number of years the customer has been with the bank.
+BANK_CHURN_CUSTOMERS,NUMBER,ROW_NUMBER,YES,,38,0,Unique row number.
+BANK_CHURN_CUSTOMERS,NUMBER,HAS_CR_CARD,YES,,38,0,"Indicates if the customer has a credit card (1 for yes, 0 for no)."

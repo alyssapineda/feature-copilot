@@ -1,0 +1,11 @@
+TABLE_NAME,DATA_TYPE,COLUMN_NAME,IS_NULLABLE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COMMENT
+SEC_HOLDING_FILING_INDEX,TEXT,ADDITIONAL_INFORMATION,YES,16777216,,,Additional information the filer has opted to include in the report.
+SEC_HOLDING_FILING_INDEX,NUMBER,REPORTING_PERIOD_QUARTER,YES,,2,0,Calendar quarter for this reporting period.
+SEC_HOLDING_FILING_INDEX,TEXT,SUBMISSION_TYPE,YES,16777216,,,"Type of submission for this filing. One of 13F-HR(/A) to denote a holdings report (or its amendment), or 13F-NT(/A) to denote a notice report (or its amendment)."
+SEC_HOLDING_FILING_INDEX,TEXT,NUMBER_OF_HOLDINGS,YES,16777216,,,Number of holdings included in this report.
+SEC_HOLDING_FILING_INDEX,TEXT,TOTAL_HOLDING_VALUE,YES,16777216,,,Aggregate value of the holdings in this report.
+SEC_HOLDING_FILING_INDEX,DATE,FILING_DATE,YES,,,,Filing date with with SEC.
+SEC_HOLDING_FILING_INDEX,TEXT,FILING_MANAGER_NAME,YES,16777216,,,Filing manager's name.
+SEC_HOLDING_FILING_INDEX,TEXT,ADSH,YES,16777216,,,Unique accession number for the filing. Can be used to join to the sec_holding_filing_attributes table.
+SEC_HOLDING_FILING_INDEX,NUMBER,REPORTING_PERIOD_YEAR,YES,,4,0,Calendary year for this reporting period.
+SEC_HOLDING_FILING_INDEX,TEXT,CIK,YES,16777216,,,Central Index Key (CIK). Ten digit number assigned by the SEC to each registrant that submits filings.

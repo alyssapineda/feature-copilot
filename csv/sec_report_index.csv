@@ -1,0 +1,10 @@
+TABLE_NAME,DATA_TYPE,COLUMN_NAME,IS_NULLABLE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COMMENT
+SEC_REPORT_INDEX,TEXT,EIN,YES,16777216,,,"Employee Identification Number, 9 digit identification number assigned by the Internal Revenue Service to business entities operating in the United States."
+SEC_REPORT_INDEX,TEXT,COMPANY_NAME,YES,16777216,,,Name of registrant. This corresponds to the name of the legal entity as recorded in EDGAR as of the filing date.
+SEC_REPORT_INDEX,TEXT,FISCAL_PERIOD,YES,16777216,,,"Fiscal Period (e.g., Q1, Q2, Q3, FY)."
+SEC_REPORT_INDEX,TEXT,ADSH,YES,16777216,,,Accession Number assigned to each filing in the EDGAR system. Unique identifier for each individual filing. The Accession number can be used to track all records from a single filing.
+SEC_REPORT_INDEX,TEXT,FISCAL_YEAR,YES,16777216,,,Fiscal Year Focus.
+SEC_REPORT_INDEX,TEXT,FORM_TYPE,YES,16777216,,,The submission type of the filing.
+SEC_REPORT_INDEX,DATE,FILED_DATE,YES,,,,"Date of the TIMESTAMP_ACCEPTED column. If the filing was submitted after 5:30 PM, the filed_date is the next business day."
+SEC_REPORT_INDEX,TEXT,CIK,YES,16777216,,,Central Index Key (CIK). Ten digit number assigned by the SEC to each registrant that submits filings.
+SEC_REPORT_INDEX,TIMESTAMP_NTZ,TIMESTAMP_ACCEPTED,YES,,,,The acceptance date and time of the filing with the SEC. Filings accepted after 5:30pm EST are considered filed on the following business day.

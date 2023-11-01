@@ -1,0 +1,13 @@
+TABLE_NAME,DATA_TYPE,COLUMN_NAME,IS_NULLABLE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COMMENT
+SEC_CIK_INDEX,TEXT,COMPANY_ID,YES,32,,,Unique identifier assigned by Cybersyn to each company.
+SEC_CIK_INDEX,TEXT,STATE,YES,16777216,,,The state or province of the registrant.
+SEC_CIK_INDEX,TEXT,CIK,YES,16777216,,,Central Index Key (CIK). Ten digit number assigned by the SEC to each registrant that submits filings.
+SEC_CIK_INDEX,TEXT,SIC,YES,16777216,,,Standard Industrial Classification (SIC). Code assigned by the SEC indicating the registrant industry group.
+SEC_CIK_INDEX,TEXT,CITY,YES,16777216,,,The city of the registrant.
+SEC_CIK_INDEX,TEXT,COMPANY_NAME,YES,16777216,,,Name of registrant. This corresponds to the name of the legal entity as of the latest filing date.
+SEC_CIK_INDEX,TEXT,SIC_CODE_CATEGORY,YES,16777216,,,Standard Industrial Classification (SIC) code category.
+SEC_CIK_INDEX,TEXT,STATE_GEO_ID,YES,16777216,,,A unique identifier of the state where the business is headquartered. Joinable to the GEOGRAPHY_INDEX table
+SEC_CIK_INDEX,TEXT,EIN,YES,16777216,,,Employee Identification Number assigned by the Internal Revenue Service (IRS)
+SEC_CIK_INDEX,TEXT,SIC_CODE_DESCRIPTION,YES,16777216,,,Standard Industrial Classification (SIC) code description.
+SEC_CIK_INDEX,TEXT,COUNTRY,YES,16777216,,,The country of the registrant.
+SEC_CIK_INDEX,TEXT,COUNTRY_GEO_ID,YES,16777216,,,A unique identifier of the country where the business is headquartered. Joinable to the GEOGRAPHY_INDEX table
