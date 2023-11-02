@@ -1,0 +1,8 @@
+TABLE_NAME,DATA_TYPE,COLUMN_NAME,IS_NULLABLE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COMMENT
+COMPANY_INDEX,TEXT,COMPANY_NAME,YES,16777216,,,The name of the company.
+COMPANY_INDEX,TEXT,COMPANY_ID,YES,32,,,Unique identifier assigned by Cybersyn to each company.
+COMPANY_INDEX,TEXT,CIK,YES,16777216,,,"Central Index Key, a unique identifier for corporations registered with the United States Securities and Exchange Commission (SEC)."
+COMPANY_INDEX,TEXT,EIN,YES,16777216,,,"Employer Identification Number, a unique identification number that is assigned to a business by the IRS."
+COMPANY_INDEX,TEXT,PERMID_COMPANY_ID,YES,16777216,,,"Permanent Identifier, which is a identifier provided by Refinitive (via PermID) to provide a way to uniquely identify a company."
+COMPANY_INDEX,TEXT,ENTITY_LEVEL,YES,9,,,"Describes the type or level of the entity for additional convenience. Potential values include 'brands' (Amazon Basics), 'merchants' (Amazon.com), and 'companies' (Amazon Inc.)"
+COMPANY_INDEX,ARRAY,LEI,YES,,,,"Legal Entity Identifier, a unique identifier from GLEIF that identifies legal entities that engage in financial transactions."

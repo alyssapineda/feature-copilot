@@ -1,0 +1,8 @@
+TABLE_NAME,DATA_TYPE,COLUMN_NAME,IS_NULLABLE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COMMENT
+SEC_FISCAL_CALENDARS,DATE,PERIOD_END_DATE,YES,,,,The Fiscal Period End Date.
+SEC_FISCAL_CALENDARS,TEXT,FISCAL_PERIOD,YES,16777216,,,"Fiscal Period (e.g., Q1, Q2, Q3, FY)."
+SEC_FISCAL_CALENDARS,DATE,PERIOD_START_DATE,YES,,,,The Fiscal Period Start Date.
+SEC_FISCAL_CALENDARS,TEXT,CIK,YES,16777216,,,Central Index Key (CIK). Ten digit number assigned by the Commission to each registrant that submits filings.
+SEC_FISCAL_CALENDARS,NUMBER,DAYS_IN_PERIOD,YES,,10,0,The # of days in the Fiscal Period Focus.
+SEC_FISCAL_CALENDARS,TEXT,FISCAL_YEAR,YES,16777216,,,Fiscal Year Focus.
+SEC_FISCAL_CALENDARS,TEXT,COMPANY_NAME,YES,16777216,,,Name of registrant. This corresponds to the name of the legal entity as recorded in EDGAR as of the filing date.

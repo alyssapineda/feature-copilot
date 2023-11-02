@@ -3,13 +3,13 @@
     "path": "csv/fdic.csv",
     "table_number": "1",
     "table_name":"BANKING_ANALYTICS_BUNDLE.BANKING_INSIGHTS.FDIC",
-    "table_header":"Financial Institution Data information",
+    "table_header":"Federal Deposit Insurance Corporation (FDIC) Financial Institution Data information",
     "table_description":"This table contains information about financial institution data and their attributes"
   },
   {
     "path":"csv/fred_financial_labor_performance.csv",
     "table_number":"2",
-    "table_name":"BANKING_ANALYTICS_BUNDLE.BANKING_INSIGHTS.FINANCIAL_LABOUR_PERFORMANCE",
+    "table_name":"BANKING_ANALYTICS_BUNDLE.BANKING_INSIGHTS.FRED_FINANCIAL_LABOR_PERFORMANCE",
     "table_header":"Economic and Financial Labor Performance Data information",
     "table_description":"This table contains information about related to economic and financial labor performance, including employment, industrial production, and labor force participation and their attributes"
   },
@@ -17,14 +17,14 @@
     "path":"csv/fred_interest_rate_data.csv",
     "table_number":"3",
     "table_name":"BANKING_ANALYTICS_BUNDLE.BANKING_INSIGHTS.FRED_INTEREST_RATE_DATA",
-    "table_header":"Interest Rate Data",
+    "table_header":"Federal Reserve Economic Data (FRED) Interest Rate Data",
     "table_description":"This table contains information about related to interest rates, including treasury bill rates, yield curve rates, and real rates and their attributes"
   },
   {
     "path":"csv/fred_unemployment_rate.csv",
     "table_number":"4",
-    "table_name":"BANKING_ANALYTICS_BUNDLE.BANKING_INSIGHTS.FRED_UNEMPLOYMENT_RATE_DATA",
-    "table_header":"Unemployment Rate and Economic Data information",
+    "table_name":"BANKING_ANALYTICS_BUNDLE.BANKING_INSIGHTS.FRED_UNEMPLOYEMENT_RATE",
+    "table_header":"Federal Reserve Economic Data (FRED) Unemployment Rate and Economic Data information",
     "table_description":"This table contains information about related to unemployment rates and various economic indicators and their attributes"
   },
   {
@@ -33,5 +33,110 @@
     "table_name":"BANKING_ANALYTICS_BUNDLE.BANKING_INSIGHTS.NCUA_CREDIT_UNION_BRANCHES",
     "table_header":"Credit union branches information",
     "table_description":"This table contains information about credit union branches and their attributes"
+  },
+  {
+    "path":"csv/bank_churn_customers.csv",
+    "table_number":"6",
+    "table_name":"BANK_MARKETING.BANKING_INSIGHTS.BANK_CHURN_CUSTOMERS",
+    "table_header":"Bank customer churn information",
+    "table_description":"This table contains information about various banking customer attributes and behaviors related to a bank's clientele. It can be used for customer analytics, churn prediction, and understanding customer demographics and financial preferences."
+  },
+  {
+    "path":"csv/bank_marketing_data.csv",
+    "table_number":"7",
+    "table_name":"BANK_MARKETING.BANKING_INSIGHTS.BANK_MARKETING_DATA",
+    "table_header":"Bank Marketing Data",
+    "table_description":"This table contains information related to tracking and analyzing marketing campaigns conducted by the bank, along with demographic and financial information about the individuals targeted by these campaigns. This data could be valuable for assessing the effectiveness of marketing efforts and making data-driven decisions in the financial sector."
+  },
+  {
+    "path":"csv/company_characteristics.csv",
+    "table_number":"8",
+    "table_name":"CYBERSYN_SEC_FILINGS.CYBERSYN.COMPANY_CHARACTERISTICS",
+    "table_header":"Company Characteristics Data",
+    "table_description":"This table contains information related to characteristics or attributes of various companies."
+  },
+  {
+    "path":"csv/company_index.csv",
+    "table_number":"9",
+    "table_name":"CYBERSYN_SEC_FILINGS.CYBERSYN.COMPANY_INDEX",
+    "table_header":"Company Index Data",
+    "table_description":"This table contains information related to various companies, including their unique identifiers, regulatory IDs and other characteristics."
+  },
+  {
+    "path":"csv/company_security_relationships.csv",
+    "table_number":"10",
+    "table_name":"CYBERSYN_SEC_FILINGS.CYBERSYN.COMPANY_SECURITY_RELATIONSHIPS",
+    "table_header":"Company Security Relationships Data",
+    "table_description":"This table contains information related to managing and tracking relationships between companies and securities."
+  },
+  {
+    "path":"csv/geography_index.csv",
+    "table_number":"11",
+    "table_name":"CYBERSYN_SEC_FILINGS.CYBERSYN.GEOGRAPHY_INDEX",
+    "table_header":"Geography Index Data",
+    "table_description":"This table contains information related to information about geographic locations, their codes, names, and hierarchical levels"
+  },
+  {
+    "path":"csv/openfigi_security_index.csv",
+    "table_number":"12",
+    "table_name":"CYBERSYN_SEC_FILINGS.CYBERSYN.OPENFIGI_SECURITY_INDEX",
+    "table_header":"Open Financial Instrument Global Identifier (FIGI) Security Index Data",
+    "table_description":"This table contains information related to information about financial securities, their identifiers, trading data, and classifications, especially in the context of the Financial Instrument Global Identifier (FIGI) system"
+  },
+  {
+    "path":"csv/permid_security_index.csv",
+    "table_number":"13",
+    "table_name":"CYBERSYN_SEC_FILINGS.CYBERSYN.PERMID_SECURITY_INDEX",
+    "table_header":"Permanent ID Security Index Data",
+    "table_description":"This table contains information related to comprehensive information about financial securities, including their names, trading venues, asset class, status, exchange codes, unique PermID identifiers, and tickers"
+  },
+  {
+    "path":"csv/sec_cik_index.csv",
+    "table_number":"14",
+    "table_name":"CYBERSYN_SEC_FILINGS.CYBERSYN.SEC_CIK_INDEX",
+    "table_header":"U.S. Securities and Exchange Commission (SEC) Central Index Key (CIK) Index Data",
+    "table_description":"This table contains information related to information about companies, including their identifiers, geographic details, SIC codes, industry classifications, and tax-related information."
+  },
+  {
+    "path":"csv/sec_fiscal_calendars.csv",
+    "table_number":"15",
+    "table_name":"CYBERSYN_SEC_FILINGS.CYBERSYN.SEC_FISCAL_CALENDARS",
+    "table_header":"U.S. Securities and Exchange Commission (SEC) FISCAL Calendar Data",
+    "table_description":"This table contains information related to information about when fiscal periods start and end, the duration of each period, and the corresponding fiscal years"
+  },
+  {
+    "path":"csv/sec_holding_filing_attributes.csv",
+    "table_number":"16",
+    "table_name":"CYBERSYN_SEC_FILINGS.CYBERSYN.SEC_HOLDING_FILING_ATTRIBUTES",
+    "table_header":"U.S. Securities and Exchange Commission (SEC) Holding Filing Attributes Data",
+    "table_description":"This table contains information related to information that tracks various attributes of security holdings, including details about the holdings, the filing manager, asset classifications, and security types"
+  },
+  {
+    "path":"csv/sec_holding_filing_index.csv",
+    "table_number":"17",
+    "table_name":"CYBERSYN_SEC_FILINGS.CYBERSYN.SEC_HOLDING_FILING_INDEX",
+    "table_header":"U.S. Securities and Exchange Commission (SEC) Holding Filing Index Data",
+    "table_description":"This table contains information related to filings and reports made with the U.S. Securities and Exchange Commission (SEC), specifically related to holdings and investments."
+  },
+  {
+    "path":"csv/sec_report_attributes.csv",
+    "table_number":"18",
+    "table_name":"CYBERSYN_SEC_FILINGS.CYBERSYN.SEC_REPORT_ATTRIBUTES",
+    "table_header":" U.S. Securities and Exchange Commission (SEC) Report Attributes Data",
+    "table_description":"This table contains information related to attributes of financial reports submitted to the U.S. Securities and Exchange Commission (SEC)."
+  },
+  {
+    "path":"csv/sec_report_index.csv",
+    "table_number":"19",
+    "table_name":"CYBERSYN_SEC_FILINGS.CYBERSYN.SEC_REPORT_INDEX",
+    "table_header":"U.S. Securities and Exchange Commission (SEC) Report Index Data",
+    "table_description":"This table contains information related to information that tracks and indexes the filings made by various business entities with the SEC. It captures key information about the filings, including the filing entity's unique identifiers, filing details, and acceptance timestamps"
+  },
+  {
+    "path":"csv/sec_report_text_attributes.csv",
+    "table_number":"20",
+    "table_name":"CYBERSYN_SEC_FILINGS.CYBERSYN.SEC_REPORT_TEXT_ATTRIBUTES",
+    "table_header":"Security Report Text Attributes Data",
+    "table_description":"This table contains information related to information that captures textual attributes and content from SEC reports and filings. It provides information related to the raw text content, including details about the reporting period, variable identification, and the entities involved in the filings."
   }
 ]

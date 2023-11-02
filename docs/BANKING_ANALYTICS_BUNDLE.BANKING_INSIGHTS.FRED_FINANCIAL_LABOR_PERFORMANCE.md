@@ -6,9 +6,9 @@ This table contains information about related to economic and financial labor pe
 
 - INDUSTRIAL_PRODUCTION_SEASONALLY_ADJUSTED: Number (38, 2) - Data on industrial production, which gauges the output and performance of the industrial sector seasonally adjusted (Nullable: YES)
 
-- ALL_EMPLOYEES_TOTAL_NONFARM_SEASONALLY_ADJUSTED: Number (38, 2) - Data on total nonfarm employment, capturing the number of individuals employed across various industries seasonally adjusted (Nullable: YES)
-
 - INDUSTRIAL_PRODUCTION_NOT_SEASONALLY_ADJUSTED: Number (38, 2) - Data on industrial production, which gauges the output and performance of the industrial sector not seasonally adjusted (Nullable: YES)
+
+- ALL_EMPLOYEES_TOTAL_NONFARM_SEASONALLY_ADJUSTED: Number (38, 2) - Data on total nonfarm employment, capturing the number of individuals employed across various industries seasonally adjusted (Nullable: YES)
 
 - PERSONAL_SAVING_RATE: Number (38, 2) - Personal saving rate, indicating the proportion of disposable income that individuals save rather than spend (Nullable: YES)
 
