@@ -103,7 +103,95 @@ Here are some examples:
             WHERE BANK_CLASS <> 'failed';
             "
 
+    "question": "Count the total number of customers",
+    "context": 
+            "
+            SELECT COUNT(*) AS total_customers
+            FROM BANKING_INSIGHTS.CHURN_BANK_CUSTOMERS;
+            "
 
+    "question": "Identify the highest and lowest credit scores",
+    "context": 
+            "
+            SELECT MAX(CREDIT_SCORE) AS max_credit_score, MIN(CREDIT_SCORE) AS min_credit_score
+            FROM BANKING_INSIGHTS.CHURN_BANK_CUSTOMERS;
+            "
+
+    "question": "Compare revenue numbers from for 2022 for different airline companies.",
+    "context": 
+            "
+            SELECT i.cik, i.company_name, r.period_start_date, r.period_end_date, r.measure_description, TO_NUMERIC(r.value) AS value
+            FROM cybersyn.sec_cik_index AS i
+            JOIN cybersyn.sec_report_attributes AS r ON (r.cik = i.cik)
+            WHERE i.sic_code_description = 'AIR TRANSPORTATION, SCHEDULED'
+              AND r.statement = 'Income Statement'
+              AND r.period_end_date = '2022-12-31'
+              AND r.covered_qtrs = 4
+              AND r.metadata IS NULL
+              AND r.measure_description IN ('Total operating revenues', 'Total operating revenue');
+            "
+
+    "question": "Measure Chipotle's store count growth over time",
+    "context": 
+            "
+            SELECT i.cik, i.company_name, r.period_end_date, r.measure_description, MAX(TO_NUMBER(r.value)) AS value
+            FROM cybersyn.sec_cik_index AS i
+            JOIN cybersyn.sec_report_attributes AS r ON (r.cik = i.cik)
+            WHERE company_name = 'CHIPOTLE MEXICAN GRILL INC'
+            AND r.measure_description = 'Number of restaurants'
+            GROUP BY i.cik, i.company_name, i.cik, r.period_end_date, r.measure_description;
+            "
+
+    "question": "Pull Walmart's fiscal calendar does not align with the calendar year. Pull their quarter start and end dates.",
+    "context": 
+            "
+            SELECT company_name, fiscal_year, fiscal_period, period_start_date, period_end_date
+            FROM cybersyn.sec_fiscal_calendars
+            WHERE company_name = 'WALMART INC.'
+            ORDER BY period_end_date;
+            "
+
+    "question": "See Berkshire Hathaway’s most recent public holdings disclosure and join associated tickers under which each holding may be traded globally on all exchanges",
+    "context": 
+            "
+            WITH latest_filing AS (
+                SELECT adsh
+                FROM cybersyn.sec_holding_filing_index
+                WHERE filing_manager_name = 'Berkshire Hathaway Inc'
+                ORDER BY filing_date DESC
+                LIMIT 1
+            )
+            SELECT att.*,
+                securities.global_tickers
+            FROM cybersyn.sec_holding_filing_attributes AS att
+            LEFT JOIN cybersyn.openfigi_security_index AS securities
+                ON att.top_level_openfigi_id = securities.top_level_openfigi_id
+            WHERE att.adsh IN (SELECT * FROM latest_filing)
+            ORDER BY att.market_value DESC;
+            "
+
+    "question": "Search for commonly-used corporate identifiers such as CIK and EIN as well as stock-specific identifiers like ticker symbol and OpenFIGI ID.",
+    "context": 
+            "
+            SELECT
+                idx.company_id,
+                idx.company_name,
+                idx.cik,
+                idx.ein,
+                idx.lei,
+                openfigi.openfigi_share_class_id,
+                openfigi.primary_ticker,
+                idx.permid_company_id
+            FROM cybersyn.company_index AS idx
+            JOIN cybersyn.company_characteristics AS char
+                ON (idx.company_id = char.company_id)
+            JOIN cybersyn.company_security_relationships AS rship
+                ON (idx.company_id = rship.company_id)
+            JOIN cybersyn.openfigi_security_index AS openfigi
+                ON ARRAY_CONTAINS(rship.security_id::VARIANT, openfigi.openfigi_share_class_id)
+            WHERE char.relationship_type = 'sic_description'
+              AND char.value = 'Air transportation, scheduled';
+            "
 
 
 Write your response in markdown format.
