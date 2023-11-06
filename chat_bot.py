@@ -11,7 +11,7 @@ import pandas as pd
 
 def initialise_ui(ddl):
     st.title("Features Copilot")
-    st.caption("SQL Query Gneration")
+    st.caption("Features SQL Gneration")
     # model = st.radio(
     #     "",
     #     options=["✨ GPT-3.5", "🐐 code-LLama", "♾️ Claude"],
@@ -29,11 +29,11 @@ def initialise_ui(ddl):
     st.sidebar.markdown(sidebar_content)
 
     # Create a sidebar with a dropdown menu
-    selected_table = st.sidebar.selectbox(
-        "Select a table:", options=list(ddl.ddl_dict.keys())
-    )
-    st.sidebar.markdown(f"### DDL for {selected_table} table")
-    st.sidebar.code(ddl.ddl_dict[selected_table], language="sql")
+    # selected_table = st.sidebar.selectbox(
+    #     "Select a table:", options=list(ddl.ddl_dict.keys())
+    # )
+    # st.sidebar.markdown(f"### DDL for {selected_table} table")
+    # st.sidebar.code(ddl.ddl_dict[selected_table], language="sql")
 
     # Add a reset button
     # if st.sidebar.button("Reset Chat"):
@@ -42,10 +42,10 @@ def initialise_ui(ddl):
     #     st.session_state["messages"] = constants.INITIAL_MESSAGE
     #     st.session_state["history"] = []
 
-    st.sidebar.markdown(
-        "**Note:** <span style='color:red'>The snowflake data retrieval is disabled for now.</span>",
-        unsafe_allow_html=True,
-    )
+    # st.sidebar.markdown(
+    #     "**Note:** <span style='color:red'>The snowflake data retrieval is disabled for now.</span>",
+    #     unsafe_allow_html=True,
+    # )
 
     st.write(styles_content, unsafe_allow_html=True)
 
