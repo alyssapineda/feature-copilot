@@ -12,9 +12,8 @@ Features Copilot is an intuitive and user-friendly application that allows you t
 
 Here are some example queries you can try with Features Copilot:
 
-- What city has the largest amount of failed banks?
-- Analyse treasury securities data to assess interest rate sensitivity
+# newly launched banks? top performing insurance companies/assets , best performing banks 
 - Identify the highest and lowest credit scores
+- Analyse treasury securities data to assess interest rate sensitivity
 - Compare revenue numbers from for 2022 for different airline companies
-- Count the total number of customers
 - Measure Chipotle's store count growth over time
