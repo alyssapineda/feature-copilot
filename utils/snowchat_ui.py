@@ -23,7 +23,7 @@ def format_message(text):
 
 def message_func(text, is_user=False, is_df=False):
     if is_user:
-        avatar_url = "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortFlat&accessoriesType=Prescription01&hairColor=Auburn&facialHairType=BeardLight&facialHairColor=Black&clotheType=Hoodie&clotheColor=PastelBlue&eyeType=Squint&eyebrowType=DefaultNatural&mouthType=Smile&skinColor=Tanned"
+        avatar_url = "https://avataaars.io"
         message_alignment = "flex-end"
         message_bg_color = "linear-gradient(135deg, #00B2FF 0%, #006AFF 100%)"
         avatar_class = "user-avatar"
@@ -38,7 +38,7 @@ def message_func(text, is_user=False, is_df=False):
             unsafe_allow_html=True,
         )
     else:
-        avatar_url = "https://avataaars.io/?avatarStyle=Transparent&topType=WinterHat2&accessoriesType=Kurt&hatColor=Blue01&facialHairType=MoustacheMagnum&facialHairColor=Blonde&clotheType=Overall&clotheColor=Gray01&eyeType=WinkWacky&eyebrowType=SadConcernedNatural&mouthType=Sad&skinColor=Light"
+        avatar_url = "https://avataaars.io/?accessoriesType=Blank&avatarStyle=Transparent&clotheColor=Heather&clotheType=CollarSweater&eyebrowType=DefaultNatural&hairColor=Brown&mouthType=Twinkle&topType=ShortHairShortCurly"
         message_alignment = "flex-start"
         message_bg_color = "#71797E"
         avatar_class = "bot-avatar"
