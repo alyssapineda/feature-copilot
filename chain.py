@@ -13,6 +13,9 @@ import utils.constants as constants
 import streamlit as st
 import logging
 
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 class ModelConfig(BaseModel):
     model_type: str
     secrets: Dict[str, Any]
@@ -70,6 +73,7 @@ class ModelWrapper:
             combine_docs_chain=doc_chain,
             question_generator=question_generator,
         )
+        logger.info("...Initialising conversation chain...")
         return conv_chain
 
 def load_chain(model_name=constants.OPENAI["MODEL_NAME"], callback_handler=None):
@@ -77,6 +81,8 @@ def load_chain(model_name=constants.OPENAI["MODEL_NAME"], callback_handler=None)
     supabase_url = supabase_credentials["SUPABASE_URL"]
     supabase_key = supabase_credentials["SUPABASE_API_KEY"]
     supabase_client: Client = create_client(supabase_url, supabase_key)
+
+    logger.info("...Set up embedding model...")
 
     embeddings = OpenAIEmbeddings(
         openai_api_key=st.secrets["OPENAI_API_KEY"], model=constants.OPENAI["EMBEDDING_MODEL"]
@@ -87,6 +93,9 @@ def load_chain(model_name=constants.OPENAI["MODEL_NAME"], callback_handler=None)
         table_name="documents",
         query_name="v_match_documents",
     )
+
+    logger.info("...Connected embedding model to vector store...")
+
 
     if "claude" in model_name.lower():
         model_type = "claude"
