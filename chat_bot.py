@@ -3,6 +3,7 @@ import streamlit as st
 import utils.constants as constants
 from snowflake.snowpark.exceptions import SnowparkSQLException
 import pandas as pd
+import logging
 # from utils.snowchat_ui import StreamlitUICallbackHandler
 
 # callback_handler = StreamlitUICallbackHandler()

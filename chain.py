@@ -11,6 +11,7 @@ from utils.credentials import Credentials
 
 import utils.constants as constants
 import streamlit as st
+import logging
 
 class ModelConfig(BaseModel):
     model_type: str

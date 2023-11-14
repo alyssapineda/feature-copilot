@@ -8,6 +8,7 @@ import pandas as pd
 import chat_bot
 import streamlit as st
 import warnings
+import logging
 
 # def execute_sql(query, conn, retries=2):
 #     if re.match(r"^\s*(drop|alter|truncate|delete|insert|update)\s", query, re.I):
