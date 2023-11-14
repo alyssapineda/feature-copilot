@@ -57,7 +57,7 @@ def main():
             chat_bot.append_message(result, callback_handler)
             #gets result and extract sql query and make snowflake connection
             if chat_bot.get_sql(result):
-                conn = SnowflakeConnection().get_session()
+                # conn = SnowflakeConnection().get_session()
                 # print(result)
                 start_string = result.find("```sql")+len("```sql")
                 end_string = result.rfind("```")
@@ -68,7 +68,9 @@ def main():
                 # cursor.close()
 
                 # df = chat_bot.execute_sql(chat_bot.get_sql(sql_query), conn)
-                df = chat_bot.execute_sql(sql_query, conn)
+                # df = chat_bot.execute_sql(sql_query, conn)
+                # df = chat_bot.execute_sql(sql_query)
+                df = chat_bot.get_sql(sql_query)
                 # print(type(df))
                 if df is not None:
                     callback_handler.display_dataframe(df)
