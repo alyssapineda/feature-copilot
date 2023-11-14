@@ -41,6 +41,7 @@ def main():
     # Create the message bubbles in UI
     for message in st.session_state.messages:
         print(message)
+        logger.info(message)
         message_func(
             message["content"],
             True if message["role"] == "user" else False,
@@ -68,6 +69,7 @@ def main():
                 end_string = result.rfind("```")
                 sql_query = result[start_string:end_string]
                 print(sql_query)
+                logger.info(sql_query)
                 # cursor = conn.cursor()
                 # cursor.execute(sql_query)
                 # cursor.close()
