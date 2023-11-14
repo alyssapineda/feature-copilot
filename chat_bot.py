@@ -42,10 +42,10 @@ def initialise_ui(ddl):
     #     st.session_state["messages"] = constants.INITIAL_MESSAGE
     #     st.session_state["history"] = []
 
-    # st.sidebar.markdown(
-    #     "**Note:** <span style='color:red'>The snowflake data retrieval is disabled for now.</span>",
-    #     unsafe_allow_html=True,
-    # )
+    st.sidebar.markdown(
+        "**<span style='color:Black'>Credits to Cliff Ernest Muriithi</span>**",
+        unsafe_allow_html=True,
+    )
 
     st.write(styles_content, unsafe_allow_html=True)
 
