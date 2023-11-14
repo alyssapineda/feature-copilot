@@ -14,7 +14,6 @@ Here are some example queries you can try with Features Copilot:
 
 - Identify the highest and lowest credit scores
 - Which bank has the largest number of assets
-- What percentage of customers have a management job
-- Analyse treasury securities data to assess interest rate sensitivity
+- What percentage of customers have a management job 
 - Compare revenue numbers from for 2022 for different airline companies
 - Measure Chipotle's store count growth over time

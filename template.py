@@ -64,13 +64,6 @@ Here are some examples:
             FROM BANKING_ANALYTICS_BUNDLE.BANKING_INSIGHTS.FRED_FINANCIAL_LABOR_PERFORMANCE;
             "
 
-    "question": "analyse treasury securities data to assess interest rate sensitivity",
-    "context": 
-            "
-            SELECT AVG(DTYCR_4_MO) AS AVERAGE_4_MONTH_TREASURY_RATE
-            FROM BANKING_ANALYTICS_BUNDLE.BANKING_INSIGHTS.FRED_INTEREST_RATE_DATA;
-            "
-
     "question": "what city has the largest amount of failed banks",
     "context": 
             "
@@ -113,8 +106,8 @@ Here are some examples:
     "question": "Identify the highest and lowest credit scores",
     "context": 
             "
-            SELECT MAX(CREDIT_SCORE) AS max_credit_score, MIN(CREDIT_SCORE) AS min_credit_score
-            FROM BANKING_INSIGHTS.CHURN_BANK_CUSTOMERS;
+            SELECT MAX(CREDIT_SCORE) AS highest_credit_score, MIN(CREDIT_SCORE) AS lowest_credit_score
+            FROM BANK_CHURN_CUSTOMERS;
             "
 
     "question": "Compare revenue numbers from for 2022 for different airline companies.",
@@ -192,6 +185,27 @@ Here are some examples:
             WHERE char.relationship_type = 'sic_description'
               AND char.value = 'Air transportation, scheduled';
             "
+
+    "question": "Which bank has the largest number of assets"
+    "context": 
+        "
+        SELECT NAME AS BANK_NAME, ASSET
+        FROM BANKING_ANALYTICS_BUNDLE.BANKING_INSIGHTS.FDIC
+        ORDER BY ASSET DESC
+        LIMIT 1;
+        " 
+
+    "question": "What percentage of customers have a management job"
+    "context": 
+        "
+        SELECT (COUNT(*) * 100 / (SELECT COUNT(*) FROM BANK_MARKETING.BANKING_INSIGHTS.BANK_CHURN_CUSTOMERS)) AS percentage
+        FROM BANK_MARKETING.BANKING_INSIGHTS.BANK_MARKETING_DATA
+        WHERE JOB = 'management';
+        " 
+
+
+
+      
 
 
 Write your response in markdown format.
