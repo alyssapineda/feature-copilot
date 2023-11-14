@@ -29,18 +29,25 @@ class ModelWrapper:
         self.model_type = config.model_type
         self.secrets = Credentials.get_credentials()
         self.callback_handler = config.callback_handler
+        self.setup_logging()
         self.setup()
 
     def setup(self):
       self.setup_gpt()
 
+    def setup_logging(self):
+        logging.basicConfig(level=logging.INFO)
+        self.logger = logging.getLogger(__name__)
+
     def setup_gpt(self):
+        self.logger.info("....Set up GPT models....")
         self.q_llm = ChatOpenAI(
             temperature=0.0,
             openai_api_key=self.secrets["OPENAI_API_KEY"],
             model_name="gpt-3.5-turbo-16k",
             max_tokens=500,
         )
+        self.logger.info("Question-Answering GPT model ready for condensing question & chat history.")
 
         self.llm = ChatOpenAI(
             model_name="gpt-3.5-turbo-16k",
@@ -50,6 +57,8 @@ class ModelWrapper:
             callbacks=[self.callback_handler],
             streaming=True,
         )
+
+        self.logger.info("LLM-GPT model ready for answering question to use with RAG.")
 
     def get_chain(self, vectorstore):
         if not self.q_llm or not self.llm:

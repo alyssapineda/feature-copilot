@@ -10,6 +10,9 @@ import streamlit as st
 import warnings
 import logging
 
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 # def execute_sql(query, conn, retries=2):
 #     if re.match(r"^\s*(drop|alter|truncate|delete|insert|update)\s", query, re.I):
 #         chat_bot.append_message("Sorry, I can't execute queries that can modify the database.")
@@ -47,6 +50,7 @@ def main():
     callback_handler = StreamlitUICallbackHandler()
 
     chain = chain_utils.load_chain(st.session_state["model"], callback_handler)
+    logger.info("....Execute chain....")
 
     if st.session_state.messages[-1]["role"] != "assistant":
         content = st.session_state.messages[-1]["content"]
