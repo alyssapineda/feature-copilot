@@ -1,8 +1,10 @@
 from langchain.chains import ConversationalRetrievalChain, LLMChain
 from langchain.chains.question_answering import load_qa_chain
-from langchain.chat_models import ChatOpenAI
+# from langchain.chat_models import ChatOpenAI
+from langchain_community.chat_models import ChatOpenAI
 from langchain.embeddings.openai import OpenAIEmbeddings
-from langchain.vectorstores import SupabaseVectorStore
+# from langchain.vectorstores import SupabaseVectorStore
+from langchain_community.vectorstores import SupabaseVectorStore
 from pydantic import BaseModel, validator
 from supabase import create_client, Client
 import template

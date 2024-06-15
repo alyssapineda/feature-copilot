@@ -12,7 +12,7 @@ import logging
 
 def initialise_ui(ddl):
     st.title("Features Copilot")
-    st.caption("Features SQL Gneration")
+    st.caption("Features SQL Generation")
     # model = st.radio(
     #     "",
     #     options=["✨ GPT-3.5", "🐐 code-LLama", "♾️ Claude"],
