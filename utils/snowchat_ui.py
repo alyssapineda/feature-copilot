@@ -23,14 +23,15 @@ def format_message(text):
 
 def message_func(text, is_user=False, is_df=False):
     if is_user:
-        avatar_url = "https://avataaars.io"
+        avatar_url = "https://icons.veryicon.com/png/o/miscellaneous/forestry-in-yiliang/person-11.png"
         message_alignment = "flex-end"
-        message_bg_color = "linear-gradient(135deg, #00B2FF 0%, #006AFF 100%)"
+        message_bg_color = "#FFF5CC"
+        text_color = "#000000"
         avatar_class = "user-avatar"
         st.write(
             f"""
                 <div style="display: flex; align-items: center; margin-bottom: 10px; justify-content: {message_alignment};">
-                    <div style="background: {message_bg_color}; color: white; border-radius: 20px; padding: 10px; margin-right: 5px; max-width: 75%; font-size: 14px;">
+                    <div style="background:{message_bg_color}; color:{text_color}; border: solid thin #F2C78C; border-radius: 20px; padding: 10px; margin-right: 5px; max-width: 75%; font-size: 17px;">
                         {text} \n </div>
                     <img src="{avatar_url}" class="{avatar_class}" alt="avatar" style="width: 50px; height: 50px;" />
                 </div>
@@ -38,9 +39,10 @@ def message_func(text, is_user=False, is_df=False):
             unsafe_allow_html=True,
         )
     else:
-        avatar_url = "https://avataaars.io/?accessoriesType=Blank&avatarStyle=Transparent&clotheColor=Heather&clotheType=CollarSweater&eyebrowType=DefaultNatural&hairColor=Brown&mouthType=Twinkle&topType=ShortHairShortCurly"
+        avatar_url = "https://icons.veryicon.com/png/o/object/material-design-icons-1/robot-13.png"
         message_alignment = "flex-start"
-        message_bg_color = "#71797E"
+        message_bg_color = "#F2F2F1"
+        text_color = "#000000"
         avatar_class = "bot-avatar"
 
         if is_df or isinstance(text, pd.DataFrame):
@@ -50,6 +52,8 @@ def message_func(text, is_user=False, is_df=False):
                 f"""
                     <div style="display: flex; align-items: center; margin-bottom: 10px; justify-content: {message_alignment};">
                         <img src="{avatar_url}" class="{avatar_class}" alt="avatar" style="width: 50px; height: 50px;" />
+                        <div style="background: {message_bg_color}; color: {text_color}; border: solid thin #BEBEB9; border-radius: 20px; padding: 10px; margin-right: 5px; max-width: 75%; font-size: 17px;">
+                        {text} \n </div>
                     </div>
                     """,
                 unsafe_allow_html=True,
@@ -63,7 +67,7 @@ def message_func(text, is_user=False, is_df=False):
             f"""
                 <div style="display: flex; align-items: center; margin-bottom: 10px; justify-content: {message_alignment};">
                     <img src="{avatar_url}" class="{avatar_class}" alt="avatar" style="width: 50px; height: 50px;" />
-                    <div style="background: {message_bg_color}; color: white; border-radius: 20px; padding: 10px; margin-right: 5px; max-width: 75%; font-size: 14px;">
+                    <div style="background: {message_bg_color}; color: {text_color}; border-radius: 20px; padding: 10px; margin-right: 5px; max-width: 75%; font-size: 17px;">
                         {text} \n </div>
                 </div>
                 """,
@@ -79,15 +83,16 @@ class StreamlitUICallbackHandler(BaseCallbackHandler):
         self.has_streaming_ended = False
 
     def _get_bot_message_container(self, text):
-        avatar_url = "https://avataaars.io/?avatarStyle=Transparent&topType=WinterHat2&accessoriesType=Kurt&hatColor=Blue01&facialHairType=MoustacheMagnum&facialHairColor=Blonde&clotheType=Overall&clotheColor=Gray01&eyeType=WinkWacky&eyebrowType=SadConcernedNatural&mouthType=Sad&skinColor=Light"
+        avatar_url = "https://icons.veryicon.com/png/o/object/material-design-icons-1/robot-13.png"
         message_alignment = "flex-start"
-        message_bg_color = "#71797E"
+        message_bg_color = "#F2F2F1"
+        text_color = "#000000"
         avatar_class = "bot-avatar"
         formatted_text = format_message(text)
         container_content = f"""
             <div style="display: flex; align-items: center; margin-bottom: 10px; justify-content: {message_alignment};">
                 <img src="{avatar_url}" class="{avatar_class}" alt="avatar" style="width: 50px; height: 50px;" />
-                <div style="background: {message_bg_color}; color: white; border-radius: 20px; padding: 10px; margin-right: 5px; max-width: 75%; font-size: 14px;">
+                <div style="background: {message_bg_color}; color: {text_color}; border-radius: 20px; padding: 10px; margin-right: 5px; max-width: 75%; font-size: 17px;">
                     {formatted_text} \n </div>
             </div>
         """
@@ -105,7 +110,7 @@ class StreamlitUICallbackHandler(BaseCallbackHandler):
             self.placeholder.markdown(container_content, unsafe_allow_html=True)
 
     def display_dataframe(self, df):
-        avatar_url = "https://avataaars.io/?avatarStyle=Transparent&topType=WinterHat2&accessoriesType=Kurt&hatColor=Blue01&facialHairType=MoustacheMagnum&facialHairColor=Blonde&clotheType=Overall&clotheColor=Gray01&eyeType=WinkWacky&eyebrowType=SadConcernedNatural&mouthType=Sad&skinColor=Light"
+        avatar_url = "https://icons.veryicon.com/png/o/object/material-design-icons-1/robot-13.png"
         message_alignment = "flex-start"
         avatar_class = "bot-avatar"
 
