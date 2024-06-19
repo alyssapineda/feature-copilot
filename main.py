@@ -63,25 +63,25 @@ def main():
             chat_bot.append_message(result, callback_handler)
             #gets result and extract sql query and make snowflake connection
             if chat_bot.get_sql(result):
-                # conn = SnowflakeConnection().get_session()
+                conn = SnowflakeConnection().get_session()
                 # print(result)
                 start_string = result.find("```sql")+len("```sql")
                 end_string = result.rfind("```")
                 sql_query = result[start_string:end_string]
                 print(sql_query)
                 logger.info(sql_query)
-                # cursor = conn.cursor()
-                # cursor.execute(sql_query)
-                # cursor.close()
+                cursor = conn.cursor()
+                cursor.execute(sql_query)
+                cursor.close()
 
-                # df = chat_bot.execute_sql(chat_bot.get_sql(sql_query), conn)
-                # df = chat_bot.execute_sql(sql_query, conn)
-                # df = chat_bot.execute_sql(sql_query)
+                df = chat_bot.execute_sql(chat_bot.get_sql(sql_query), conn)
+                df = chat_bot.execute_sql(sql_query, conn)
+                df = chat_bot.execute_sql(sql_query)
                 df = chat_bot.get_sql(sql_query)
-                # print(type(df))
+                print(type(df))
                 if df is not None:
                     callback_handler.display_dataframe(df)
-                    #chat_bot.append_message(df.to_string(), "data", True)
+                    chat_bot.append_message(df.to_string(), "data", True)
                 else:
                     print("This is empty")
 if __name__ == "__main__":
