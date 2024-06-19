@@ -24,13 +24,12 @@ class SnowflakeConnection:
             )
         return self.session
 
-    # def sql_execution(self):
-    #     sql =""
-    #     if self.session is None:
-    #         cursor = conn.cursor()
-    #         cursor.execute(sql)
-    #         cursor.close()
+    def sql_execution(self):
+        sql =""
+        if self.session is None:
+            cursor = conn.cursor()
+            cursor.execute(sql)
+            cursor.close()
 
 # if __name__  == "__main__":
 
-    
