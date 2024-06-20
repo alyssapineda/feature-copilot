@@ -1,0 +1,37 @@
+:root {
+
+    /*=============== CBA Branding =============*/
+
+    /* Primary */
+    --cba-primary-yellow: #FFCC00;
+    --cba-primary-yellow-light: #F2C78C;
+    --cba-beacon-yellow: #FFFF00;
+
+    /* Accent */
+    --cba-sky-blue: #54C2E8;
+    --cba-ocean-green: #1DBEB0;
+    --cba-red-earth: #FA915A;
+    --cba-dusk: #FFAA87;
+
+    /* Neutral */
+    --cba-black: #1E1E1E;
+    --cba-grey: #BEBEB9;
+    --cba-light-grey: #EBEBEB;
+    --cba-white: #FFFFFF;
+
+    /*======== Overrides for ipywidgets settings ========*/
+}
+
+.jupyter-button {
+    background-color: var(--cba-primary-yellow);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Trebuchet MS', Verdana, Arial, sans-serif;
+    color: var(--cba-black);
+    border-bottom: 1px solid var(--cba-primary-yellow);
+}
+
+h1 {
+    border-bottom: 5px solid var(--cba-primary-yellow);
+}

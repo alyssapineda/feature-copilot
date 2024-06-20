@@ -1,8 +1,8 @@
 INITIAL_MESSAGE = [
-    {"role": "user", "content": "Hi!"},
+    #{"role": "user", "content": "Hi!"},
     {
         "role": "assistant",
-        "content": "Hey there, I'm your Features Copilot, your SQL-speaking sidekick, ready to chat up Snowflake and fetch answers faster than a snowball fight in summer! ❄️🔍",
+        "content": "Hey there, I'm your Features Copilot. Ask me a question about your data and I will generate a valid SQL statement. I will also execute the statement on your Snowflake data and return the result!",
     }
 ]
 

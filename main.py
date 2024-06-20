@@ -34,6 +34,9 @@ def main():
     chat_bot.initialise_ui(snow_ddl)
     chat_bot.initialise_chat()
 
+    with open("ui/styling.css") as css:
+        st.markdown(f'<style>{css.read()}</style>', unsafe_allow_html=True)
+
     # Prompt for user input and store in st.session_state.messages
     if prompt := st.chat_input():
         st.session_state.messages.append({"role": "user", "content": prompt})

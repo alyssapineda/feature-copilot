@@ -11,8 +11,9 @@ import logging
 
 
 def initialise_ui(ddl):
-    st.title("Features Copilot")
-    st.caption("Features SQL Generation")
+    st.markdown("# ![test](https://github.com/jessicaimage/test/blob/main/cbalogo2.png?raw=true) Features Copilot", unsafe_allow_html=True)
+    #st.title("Features Copilot")
+    st.caption("Text-to-SQL Generation")
     # model = st.radio(
     #     "",
     #     options=["✨ GPT-3.5", "🐐 code-LLama", "♾️ Claude"],
@@ -42,11 +43,6 @@ def initialise_ui(ddl):
     #         del st.session_state[key]
     #     st.session_state["messages"] = constants.INITIAL_MESSAGE
     #     st.session_state["history"] = []
-
-    st.sidebar.markdown(
-        "**<span style='color:Black'>Credits to Cliff Ernest Muriithi</span>**",
-        unsafe_allow_html=True,
-    )
 
     st.write(styles_content, unsafe_allow_html=True)
 
