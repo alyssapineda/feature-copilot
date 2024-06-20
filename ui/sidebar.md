@@ -1,6 +1,6 @@
-# Features Copilot
+# ![text](https://github.com/jessicaimage/test/blob/main/cbalogo2.png?raw=true)    Features Copilot
 
-Features Copilot is an intuitive and user-friendly application that allows you to interact with your Snowflake data using natural language queries. Type in your questions or requests, and Features Copilot will generate the appropriate SQL query and return the data you need.
+Features Copilot is an intuitive and user-friendly application that allows you to interact with your Snowflake data using natural language queries. Type in your questions or requests, and Features Copilot will generate and execute the appropriate SQL query.
 
 ## Features
 
