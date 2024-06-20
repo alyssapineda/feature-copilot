@@ -78,8 +78,8 @@ def main():
                 cursor.close()
 
                 df = chat_bot.execute_sql(chat_bot.get_sql(sql_query), conn)
-                df = chat_bot.execute_sql(sql_query, conn)
-                df = chat_bot.execute_sql(sql_query)
+                #df = chat_bot.execute_sql(sql_query, conn)
+                #df = chat_bot.execute_sql(sql_query)
                 df = chat_bot.get_sql(sql_query)
                 print(type(df))
                 if df is not None:

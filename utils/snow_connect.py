@@ -24,7 +24,7 @@ class SnowflakeConnection:
             )
         return self.session
 
-    def sql_execution(self):
+    def sql_execution(self, conn):
         sql =""
         if self.session is None:
             cursor = conn.cursor()
