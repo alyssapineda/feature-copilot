@@ -1,9 +1,0 @@
-TABLE_NAME,DATA_TYPE,COLUMN_NAME,IS_NULLABLE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COMMENT
-GEOGRAPHY_INDEX,TEXT,ISO_NUMERIC_CODE,YES,16777216,,,Numeric code from International Organization for Standardization
-GEOGRAPHY_INDEX,TEXT,ISO_3166_2_CODE,YES,16777216,,,Full ISO-3166 code
-GEOGRAPHY_INDEX,TEXT,GEO_ID,YES,16777216,,,"A unique identifier for a place (a nation, state, zip-code, etc.)"
-GEOGRAPHY_INDEX,TEXT,ISO_NAME,YES,16777216,,,Country name from International Organization for Standardization
-GEOGRAPHY_INDEX,TEXT,ISO_ALPHA3,YES,16777216,,,3 letter country code from International Organization for Standardization
-GEOGRAPHY_INDEX,TEXT,LEVEL,YES,16777216,,,"Geographic level or hierarchy (e.g., Country, State, County, City, Continent, CountrySubRegion, etc.)"
-GEOGRAPHY_INDEX,TEXT,ISO_ALPHA2,YES,16777216,,,2 letter country code from International Organization for Standardization
-GEOGRAPHY_INDEX,TEXT,GEO_NAME,YES,16777216,,,Full name of the place
