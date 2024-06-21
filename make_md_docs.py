@@ -55,7 +55,7 @@ def main():
   #If we have unlabelled company tables, how would we know what table header and descriptions to put?
   #Instead of saving csv files to csv folder, can connect to snowflake?
 
-  with open('table_info.json', 'r') as table_info:
+  with open('tables_info.json', 'r') as table_info:
     table_info_list = json.load(table_info)
 
     for tables in table_info_list:
