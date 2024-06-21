@@ -1,8 +1,0 @@
-TABLE_NAME,DATA_TYPE,COLUMN_NAME,IS_NULLABLE,CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,COMMENT
-SEC_REPORT_TEXT_ATTRIBUTES,TEXT,VARIABLE_NAME,YES,16777216,,,Human-readable name for the variable.
-SEC_REPORT_TEXT_ATTRIBUTES,DATE,PERIOD_END_DATE,YES,,,,Last day of the quarter or fiscal filing period related to the text.
-SEC_REPORT_TEXT_ATTRIBUTES,TEXT,VARIABLE,YES,16777216,,,Unique identifier for each measure.
-SEC_REPORT_TEXT_ATTRIBUTES,TEXT,VALUE,YES,16777216,,,"The raw text output from the filing including management discussion and analysis, key risk factors, etc."
-SEC_REPORT_TEXT_ATTRIBUTES,TEXT,CIK,YES,16777216,,,Central Index Key (CIK). Ten digit number assigned by the SEC to each registrant that submits filings.
-SEC_REPORT_TEXT_ATTRIBUTES,TEXT,SEC_DOCUMENT_ID,YES,16777216,,,Unique identifier based on a concatention of the ADSH and document type.
-SEC_REPORT_TEXT_ATTRIBUTES,TEXT,ADSH,YES,16777216,,,Accession Number assigned to each filing in the EDGAR system. Unique identifier for each individual filing. The Accession number can be used to track all records from a single filing.
