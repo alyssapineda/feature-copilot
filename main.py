@@ -74,13 +74,17 @@ def main():
                 print(sql_query)
                 logger.info(sql_query)
                 cursor = conn.cursor()
-                cursor.execute(sql_query)
-                cursor.close()
+                sql_result = cursor.execute(sql_query).fetchall()
+                print("RESULT")
+                print(sql_result)
+                #cursor.close()
 
-                df = chat_bot.execute_sql(chat_bot.get_sql(sql_query), conn)
+                df = pd.DataFrame(sql_result)
+
+                #df = chat_bot.execute_sql(chat_bot.get_sql(sql_query), conn)
                 #df = chat_bot.execute_sql(sql_query, conn)
                 #df = chat_bot.execute_sql(sql_query)
-                df = chat_bot.get_sql(sql_query)
+                #df = chat_bot.get_sql(sql_query)
                 print(type(df))
                 if df is not None:
                     callback_handler.display_dataframe(df)

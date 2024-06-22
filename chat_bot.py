@@ -95,7 +95,7 @@ def append_message(content, callback_handler, role="assistant", display=False):
 
 
 def execute_sql(query, conn, retries=2):
-    if re.match(r"^\s*(drop|alter|truncate|delete|insert|update)\s", query, re.I):
+    if re.match(r"^\s*(drop|alter|truncate|delete|insert|update)\s", str(query), re.I):
         append_message("Sorry, I can't execute queries that can modify the database.")
         return None
     try:
