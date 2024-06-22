@@ -49,13 +49,13 @@ class ModelWrapper:
         self.q_llm = ChatOpenAI(
             temperature=0.0,
             openai_api_key=self.secrets["OPENAI_API_KEY"],
-            model_name="gpt-3.5-turbo-16k",
+            model_name="gpt-4-turbo",
             max_tokens=500,
         )
         self.logger.info("Question-Answering GPT model ready for condensing question & chat history.")
 
         self.llm = ChatOpenAI(
-            model_name="gpt-3.5-turbo-16k",
+            model_name="gpt-4-turbo",
             temperature=0.0,
             openai_api_key=self.secrets["OPENAI_API_KEY"],
             max_tokens=500,

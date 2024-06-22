@@ -7,6 +7,6 @@ INITIAL_MESSAGE = [
 ]
 
 OPENAI = {
-    "MODEL_NAME": "GPT-3.5",
+    "MODEL_NAME": "GPT-4",
     "EMBEDDING_MODEL": "text-embedding-ada-002"
 }
