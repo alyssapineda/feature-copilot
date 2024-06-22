@@ -12,8 +12,7 @@ Features Copilot is an intuitive and user-friendly application that allows you t
 
 Here are some example queries you can try with Features Copilot:
 
-- Identify the highest and lowest credit scores
-- Which bank has the largest number of assets?
-- What percentage of customers have a management job?
-- Compare revenue numbers from for 2022 for different airline companies
-- Measure Chipotle's store count growth over time
+- Calculate the total quarterly net income for the banking industry over the last four decades.
+- Which banks have the highest percentage of uninsured deposits?
+- Count credit card complaints by month by company since 2012.
+- Time series of the effective federal funds effective rate and trimmed mean PCE.
