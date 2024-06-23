@@ -1,7 +1,7 @@
 import chain as chain_utils
 from snowflake.snowpark.exceptions import SnowparkSQLException
 from utils.snowddls import Snowddl
-from utils.snowchat_ui import StreamlitUICallbackHandler, message_func
+from utils.snowchat_ui import StreamlitUICallbackHandler, message_func, display_dataframe
 from utils.snow_connect import SnowflakeConnection
 import pandas as pd
 
@@ -45,10 +45,15 @@ def main():
     for message in st.session_state.messages:
         print(message)
         logger.info(message)
+        try:
+            dataframe = message["dataframe"]
+        except:
+            dataframe = None
         message_func(
             message["content"],
             True if message["role"] == "user" else False,
             True if message["role"] == "data" else False,
+            dataframe
         )
 
     callback_handler = StreamlitUICallbackHandler()
@@ -87,8 +92,8 @@ def main():
                 #df = chat_bot.get_sql(sql_query)
                 print(type(df))
                 if df is not None:
-                    callback_handler.display_dataframe(df)
-                    chat_bot.append_message(content=df.to_string(), role="data", display=True)
+                    display_dataframe(df)
+                    chat_bot.append_message(df, role="data", display=True)
                 else:
                     print("This is empty")
 if __name__ == "__main__":
