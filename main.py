@@ -82,7 +82,7 @@ def main():
                 sql_result = cursor.execute(sql_query).fetchall()
                 print("RESULT")
                 print(sql_result)
-                #cursor.close()
+                cursor.close()
 
                 df = pd.DataFrame(sql_result)
 
