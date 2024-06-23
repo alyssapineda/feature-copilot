@@ -88,7 +88,7 @@ def main():
                 print(type(df))
                 if df is not None:
                     callback_handler.display_dataframe(df)
-                    chat_bot.append_message(df.to_string(), "data", True)
+                    chat_bot.append_message(content=df.to_string(), role="data", display=True)
                 else:
                     print("This is empty")
 if __name__ == "__main__":
