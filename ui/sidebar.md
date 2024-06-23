@@ -15,4 +15,4 @@ Here are some example queries you can try with Features Copilot:
 - Calculate the total quarterly net income for the banking industry over the last four decades.
 - Which banks have the highest percentage of uninsured deposits?
 - Count credit card complaints by month by company since 2012.
-- Time series of the effective federal funds effective rate and trimmed mean PCE.
+- Create a time series of the effective federal funds effective rate and trimmed mean PCE.
