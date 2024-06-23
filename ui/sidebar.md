@@ -12,7 +12,9 @@ Features Copilot is an intuitive and user-friendly application that allows you t
 
 Here are some example queries you can try with Features Copilot:
 
-- Calculate the total quarterly net income for the banking industry over the last four decades.
+- Evaluate central bank interest rate policies. Compare and contrast interest rate policies for major global economies.
 - Which banks have the highest percentage of uninsured deposits?
-- Count credit card complaints by month by company since 2012.
+- Create a sql query to count credit card complaints by month by company since 2012.
 - Create a time series of the effective federal funds effective rate and trimmed mean PCE.
+- Can you write me a sql query for comparing revenue numbers from for 2022 for different airline companies?
+- View historical trends for companies. Measure Chipotle's store count growth over time.
