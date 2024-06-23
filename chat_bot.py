@@ -66,7 +66,7 @@ def get_sql(text):
     return sql_match.group(1) if sql_match else None
 
 
-def append_message(content, callback_handler, role="assistant", display=False):
+def append_message(content, role="assistant", display=False):
     message = {"role": role, "content": content}
     st.session_state.messages.append(message)
     if role != "data":
