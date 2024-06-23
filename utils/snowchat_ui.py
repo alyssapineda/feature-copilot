@@ -21,7 +21,7 @@ def format_message(text):
     return formatted_text
 
 
-def message_func(text, is_user=False, is_df=False):
+def message_func(text, is_user=False, is_df=False, data=None):
     if is_user:
         avatar_url = "https://icons.veryicon.com/png/o/miscellaneous/forestry-in-yiliang/person-11.png"
         message_alignment = "flex-end"
@@ -45,35 +45,52 @@ def message_func(text, is_user=False, is_df=False):
         text_color = "#000000"
         avatar_class = "bot-avatar"
 
-        if is_df or isinstance(text, pd.DataFrame):
+        if is_df:# or isinstance(text, pd.DataFrame):
         #if is_df or type(text) == "<class 'pandas.core.frame.DataFrame'>":
         # if is_df == type(text):
-            st.write(
-                f"""
-                    <div style="display: flex; align-items: center; margin-bottom: 10px; justify-content: {message_alignment};">
-                        <img src="{avatar_url}" class="{avatar_class}" alt="avatar" style="width: 50px; height: 50px;" />
-                        <div style="background: {message_bg_color}; color: {text_color}; border: solid thin #BEBEB9; border-radius: 20px; padding: 10px; margin-right: 5px; max-width: 75%; font-size: 17px;">
-                        {text} \n </div>
-                    </div>
-                    """,
-                unsafe_allow_html=True,
-            )
-            st.write(text)
+
+            # st.write(
+            #     f"""
+            #         <div style="display: flex; align-items: center; margin-bottom: 10px; justify-content: {message_alignment};">
+            #             <img src="{avatar_url}" class="{avatar_class}" alt="avatar" style="width: 50px; height: 50px;" />
+            #             <div style="background: {message_bg_color}; color: {text_color}; border: solid thin #BEBEB9; border-radius: 20px; padding: 10px; margin-right: 5px; max-width: 75%; font-size: 17px;">
+            #             {text} \n </div>
+            #         </div>
+            #         """,
+            #     unsafe_allow_html=True,
+            # )
+            # st.write(text)
+            display_dataframe(pd.DataFrame(data))
             return
         else:
             text = format_message(text)
 
-        st.write(
-            f"""
-                <div style="display: flex; align-items: center; margin-bottom: 10px; justify-content: {message_alignment};">
-                    <img src="{avatar_url}" class="{avatar_class}" alt="avatar" style="width: 50px; height: 50px;" />
-                    <div style="background: {message_bg_color}; color: {text_color}; border-radius: 20px; padding: 10px; margin-right: 5px; max-width: 75%; font-size: 17px;">
-                        {text} \n </div>
-                </div>
-                """,
-            unsafe_allow_html=True,
-        )
+            st.write(
+                f"""
+                    <div style="display: flex; align-items: center; margin-bottom: 10px; justify-content: {message_alignment};">
+                        <img src="{avatar_url}" class="{avatar_class}" alt="avatar" style="width: 50px; height: 50px;" />
+                        <div style="background: {message_bg_color}; color: {text_color}; border-radius: 20px; padding: 10px; margin-right: 5px; max-width: 75%; font-size: 17px;">
+                            {text} \n </div>
+                    </div>
+                    """,
+                unsafe_allow_html=True,
+            )
 
+
+def display_dataframe(df):
+    avatar_url = "https://icons.veryicon.com/png/o/object/material-design-icons-1/robot-13.png"
+    message_alignment = "flex-start"
+    avatar_class = "bot-avatar"
+
+    st.write(
+        f"""
+        <div style="display: flex; align-items: center; margin-bottom: 10px; justify-content: {message_alignment};">
+            <img src="{avatar_url}" class="{avatar_class}" alt="avatar" style="width: 50px; height: 50px;" />
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    st.write(df)
 
 class StreamlitUICallbackHandler(BaseCallbackHandler):
     def __init__(self):
@@ -109,20 +126,20 @@ class StreamlitUICallbackHandler(BaseCallbackHandler):
             container_content = self._get_bot_message_container(complete_message)
             self.placeholder.markdown(container_content, unsafe_allow_html=True)
 
-    def display_dataframe(self, df):
-        avatar_url = "https://icons.veryicon.com/png/o/object/material-design-icons-1/robot-13.png"
-        message_alignment = "flex-start"
-        avatar_class = "bot-avatar"
+    # def display_dataframe(self, df):
+    #     avatar_url = "https://icons.veryicon.com/png/o/object/material-design-icons-1/robot-13.png"
+    #     message_alignment = "flex-start"
+    #     avatar_class = "bot-avatar"
 
-        st.write(
-            f"""
-            <div style="display: flex; align-items: center; margin-bottom: 10px; justify-content: {message_alignment};">
-                <img src="{avatar_url}" class="{avatar_class}" alt="avatar" style="width: 50px; height: 50px;" />
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-        st.write(df)
+    #     st.write(
+    #         f"""
+    #         <div style="display: flex; align-items: center; margin-bottom: 10px; justify-content: {message_alignment};">
+    #             <img src="{avatar_url}" class="{avatar_class}" alt="avatar" style="width: 50px; height: 50px;" />
+    #         </div>
+    #         """,
+    #         unsafe_allow_html=True,
+    #     )
+    #     st.write(df)
 
     def on_llm_end(self, response, run_id, parent_run_id=None, **kwargs):
         self.token_buffer = []  # Reset the buffer

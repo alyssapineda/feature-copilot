@@ -66,8 +66,12 @@ def get_sql(text):
     return sql_match.group(1) if sql_match else None
 
 
-def append_message(content, role="assistant", display=False):
-    message = {"role": role, "content": content}
+def append_message(df, role="assistant", display=False):
+    try:
+        content = df.to_string()
+    except:
+        content = str(df)
+    message = {"role": role, "content": content, "dataframe": df}
     st.session_state.messages.append(message)
     if role != "data":
         append_chat_history(st.session_state.messages[-2]["content"], content)
