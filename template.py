@@ -55,15 +55,6 @@ Here are some examples for FINANCIAL__ECONOMIC_ESSENTIALS database:
                         AND att.variable_name = '% Insured (Estimated)'
                         AND att.frequency = 'Quarterly'
                   ORDER BY pct_uninsured DESC;
-      
-        "question": Count credit card complaints by month by company since 2012.
-        "answer": SELECT company,
-                        DATE_TRUNC('month', date_received) AS month,
-                        COUNT(1)                           AS credit_card_complaint
-                  FROM FINANCIAL__ECONOMIC_ESSENTIALS.cybersyn.financial_cfpb_complaint
-                  WHERE product ILIKE '%card%'
-                        AND date_received >= '2012-01-01'
-                  GROUP BY company, month;
 
         "question": Compare the growth/decline of bank branches by state since the start of the pandemic.
         "answer": WITH pre_covid AS (
@@ -107,21 +98,6 @@ Here are some examples for FINANCIAL__ECONOMIC_ESSENTIALS database:
                                           'Trimmed Mean PCE Inflation Rate, Seasonally adjusted, Monthly, Percent Change YoY')
                         AND date >= '2019-01-01'
                   ORDER BY date;
-
-        "question": Evaluate central bank interest rate policies. Compare and contrast interest rate policies for major global economies.
-        "answer": SELECT ts.date,
-                        ts.variable_name,
-                        ts.value
-                  FROM FINANCIAL__ECONOMIC_ESSENTIALS.cybersyn.financial_fred_timeseries AS ts
-                  JOIN FINANCIAL__ECONOMIC_ESSENTIALS.cybersyn.financial_fred_attributes AS att
-                        ON (att.variable = ts.variable)
-                  WHERE variable_group IN ('Bank of Brazil Selic Interest Rate Target',
-                                          'Bank of Canada Overnight Lending Rate',
-                                          'Bank of England Official Bank Rate',
-                                          'Bank of Japan Policy-Rate Balance Rate',
-                                          'Bank of Mexico Official Overnight Target Rate',
-                                          'ECB Main Refinancing Operations Rate: Fixed Rate Tenders for Euro Area',
-                                          'Federal Funds Effective Rate');
 
         "question": Compare the trends of NYC metro area employment by industry. Track the total count of employees in the finance industry in New York over time. Observe trends from the dot-com bubble, global financial crisis, and Covid-19 pandemic.
         "answer": SELECT geo.geo_name,
