@@ -4,7 +4,7 @@ Features Copilot is an intuitive and user-friendly application that allows you t
 
 ## Features
 
-- **Conversational AI**: Harnesses ChatGPT 3.5 to translate natural language into precise SQL queries.
+- **Conversational AI**: Harnesses GPT-4o to translate natural language into precise SQL queries.
 - **Conversational Memory**: Retains context for interactive, dynamic responses.
 - **Snowflake Integration**: Offers seamless, real-time data insights straight from your Snowflake database.
 - **Interactive User Interface**: Transforms data querying into an engaging conversation, complete with a chat reset option.
